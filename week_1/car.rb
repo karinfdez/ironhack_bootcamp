@@ -1,14 +1,14 @@
-# class Car
+class Car
 	
-# 	def initialize(sound)
+	def initialize(sound)
 		
-# 		@sound=sound
-# 	end
+		@sound=sound
+	end
 
-# 	def noise
-# 		puts "#{@sound}!!"
-# 	end
-# end
+	def noise
+		puts "#{@sound}!!"
+	end
+end
 
 # my_car=Car.new("broom")
 # # puts my_car.inspect
@@ -17,20 +17,39 @@
 # # puts other_car.inspect
 # other_car.noise
 
-class Car
+
+# class Car
 	
-	attr_accessor :cities
+# 	attr_accessor :cities
+# 	def initialize
+# 		@cities= []
+# 	end
+
+# 	def visited_cities(my_city)
+# 		cities.push(my_city)     #I don't use the @ because of the accessor.
+# 	end
+# end
+
+# my_car=Car.new
+# my_car.visited_cities("Rome")
+# my_car.visited_cities("Madrid")
+# puts my_car.inspect
+
+class RacingCar< Car
+	
 	def initialize
-		@cities= []
+		# @cities=[]
 	end
 
-	def visited_cities(my_city)
-		cities.push(my_city)
+	def noise
+		puts "VROMMMM!!!"
+		
 	end
+
 end
 
-my_car=Car.new
-my_car.visited_cities("Havana")
-my_car.visited_cities("Madrid")
-puts my_car.inspect
+car=Car.new("BROOOM")
+car.noise
+other_car=RacingCar.new
+other_car.noise
 		

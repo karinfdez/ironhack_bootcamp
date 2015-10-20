@@ -38,8 +38,9 @@ def array_printer(array)
 end
 
 
-puts "The programming languages aged one year are: "
+# puts "The programming languages aged one year are: "
  # array_printer(aged_languages)
+
 # Output
 # The programming languages aged by one year are:
 # Language: Ruby |  Age: 22 |  Type System: Dynamic
@@ -57,7 +58,8 @@ puts "The programming languages aged one year are: "
 sorted=aged_languages.sort do |hm1,hm2|
 	hm2.age<=>hm1.age
 end
-array_printer(sorted)
+# array_printer(sorted)
+
 # The programming languages sorted by age are:
 # Language: Python |  Age: 25 |  Type System: Dynamic
 # Language: Ruby |  Age: 22 |  Type System: Dynamic
@@ -66,3 +68,21 @@ array_printer(sorted)
 # Language: Go |  Age: 7 |  Type System: Static
 # Language: Rust |  Age: 6 |  Type System: Static
 # Language: Swift |  Age: 3 |  Type System: Static
+
+
+# Delete
+my_numbers=aged_languages.map do |hm|
+	hm.age
+end
+# p my_numbers   #Regular array
+#2 ways of delete: by a condition and by index:
+# my_numbers.delete_if { |e| 
+# 	e>=22}  
+# my_numbers.delete_at(2)
+# p my_numbers
+
+#Shuffle array
+suflee_array=my_numbers.shuffle!
+# puts "Now my array is messy: #{suflee_array}"
+
+puts array_of_languages.map! { | language | language.name + "!!!"}

@@ -106,9 +106,22 @@ end
 			user_input=gets.chomp
 			user_input=user_input.to_i
 			# p user_input
+		
 			user_pick=homes.find do |hm|
-				hm.price==user_input
-			end
-			p user_pick
+					hm.price==user_input
+				end
+				if user_pick.nil?    #if the user input doesn't correspond with the values stored
+					puts "Sorry, there is not match with that home's price. Try again:"
+					your_price(homes)
+			    else
+			    	p user_pick
+			    end
+			
+			
 		end
+				# if(hm.price!=user_input)
+				# 	puts "Sorry, there is not match with that price. Try again:"
+				# 	your_price(homes)
+		
+			
 		your_price(homes)

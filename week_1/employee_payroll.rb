@@ -82,21 +82,28 @@ class Payroll
   
   	def notify_employee(employee)
          
-         employee.each do |hm|
+        
+        employee.each do |hm|
+        	if(hm.calculate_salary>0)
          	puts "#{hm.name}, we send you an email to #{hm.email} with your payroll"
-         end	
- 	end
+            else
+         	puts "we have in our records that #{hm.name} doesn't have a payroll this week"
+            end	
+ 	    end
   
- end
+     end
+end
 
 
 josh = HourlyEmployee.new('Josh', 'nachoemail@example.com', 35, 50)
 nizar = SalariedEmployee.new('Nizar', 'starcraftrulez@gmail.com', 1000000)
 ted = MultiPaymentEmployee.new('Ted', 'fortranr0x@gmail.com', 60000, 275, 55)
+berta= HourlyEmployee.new('Berta','bertaloca@yahoo.com',35,0)
 employee_payroll=[]
 employee_payroll.push(josh)
 employee_payroll.push(nizar)
 employee_payroll.push(ted)
+employee_payroll.push(berta)
 my_Payroll=Payroll.new(employee_payroll)
 my_Payroll.pay_employees
 my_Payroll.notify_employee(employee_payroll)

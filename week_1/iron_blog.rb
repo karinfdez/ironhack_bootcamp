@@ -17,23 +17,29 @@ class Blog
 			if hm.sponsor=="sponsored"
 
 					frontpage= 
-					  "\n\n********#{hm.title}******   #{hm.date}\n"+
-					   "---------------------------------"+
+					  "\n\n*****#{hm.title}*****  #{hm.date}\n"+
+					   "---------------------------------------------------"+
 						"\n#{hm.text}\n"	
 					puts frontpage
 			
 			elsif hm.sponsor =="post"
 					frontpage=
 					  "\n\n#{hm.title}  #{hm.date}\n"+
-					  "-------------------------------"+
+					  "-----------------------------------------------------"+
 					  "\n#{hm.text}\n"	
 					  puts frontpage
 			else
 				
 				puts "\n\nArticle's title: #{hm.title} is missing. It needs to be fill with 'sponsored' or 'post' categories. "
 			end
+
 		end
+
 	end
+
+# 	class Post
+#   	self.per_page = 10
+# end
 end
 
 
@@ -75,9 +81,9 @@ end
 post1_time=Time.new(2015,10,25,12,45,18)
 post1=Post.new("Welcome to Miami",post1_time,"Miami is the Sunchine state","sponsored")
 post2_time=Time.new(2015,10,19,21,18,0)
-post2=Post.new("San Franciso is the best place to live",post2_time,"There is no place like San Francisco."+	" People there is amazing.","post")
+post2=Post.new("San Franciso is the best place to live",post2_time,"There is no place like San Francisco.","post")
 post3_time=Time.new(2015,10,26,9,24,16)
-post3=Post.new("Best arquitecture ever?.New York defenitely is",post3_time,"I visited New York on winter...."+" One of the most incredibles experiences ever!","sponsored")
+post3=Post.new("Best arquitecture?",post3_time,"I visited New York on winter!.","sponsored")
 post4_time=Time.new(2015,10,26,9,24,18)	
 post4=Post.new("This is a test",post4_time,"Who likes tests?","post")
 post5_time=Time.new(2015,10,24,9,24,18)	
@@ -93,8 +99,24 @@ create_array(post_array,post5)
 
 first_blog=Blog.new(post_array)
 first_blog.publish_front_page
+ 
+#  class Pagination 
 
-require 'colorize'
-puts "I am now red.".red
-puts "I am now blue.".green
-puts "I am a super coder".yellow
+#   def index
+#     @users = User.paginate(:page => params[:page], :per_page => 3)
+#   end
+
+# end
+
+# class Post < ActiveRecord::Base
+#   cattr_reader :per_page
+#   @@per_page = 3
+# end
+# my_page=Pagination.index
+# puts my_page
+# my_page.index
+
+# require 'colorize'
+# puts "I am now red.".red
+# puts "I am now blue.".green
+# puts "I am a super coder".yellow

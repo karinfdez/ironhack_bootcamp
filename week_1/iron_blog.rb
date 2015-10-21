@@ -16,31 +16,26 @@ class Blog
 			
 			if hm.sponsor=="sponsored"
 
-					puts "\n\n"
-					puts  "********#{hm.title}******"
-					puts "--------------------"
-					puts "#{hm.text}"	
+					frontpage= 
+					  "\n\n********#{hm.title}******   #{hm.date}\n"+
+					   "---------------------------------"+
+						"\n#{hm.text}\n"	
+					puts frontpage
 			
 			elsif hm.sponsor =="post"
-				puts "\n\n"
-					puts  "#{hm.title}"
-					puts "--------------------"
-					puts "#{hm.text}"	
+					frontpage=
+					  "\n\n#{hm.title}  #{hm.date}\n"+
+					  "-------------------------------"+
+					  "\n#{hm.text}\n"	
+					  puts frontpage
 			else
-				puts "\n\n"
-				puts "Article's title: #{hm.title} needs to be fill with 'sponsored' or 'post' categories. "
+				
+				puts "\n\nArticle's title: #{hm.title} is missing. It needs to be fill with 'sponsored' or 'post' categories. "
 			end
 		end
 	end
 end
 
-	# def create_frontpage
-	
-	# 	puts "\n\n"
-	# 		puts  "#{title}"
-	# 		puts "--------------------"
-	# 		puts "#{text}"	
-	# end
 
 
 class Post
@@ -86,7 +81,7 @@ post3=Post.new("Best arquitecture ever?.New York defenitely is",post3_time,"I vi
 post4_time=Time.new(2015,10,26,9,24,18)	
 post4=Post.new("This is a test",post4_time,"Who likes tests?","post")
 post5_time=Time.new(2015,10,24,9,24,18)	
-post5=Post.new("Have You done?",post5_time,"Almost finishing!!!!","lulu")
+post5=Post.new("Have You done?",post5_time,"Almost finishing!!!!","post")
 															
 post_array=[]
 create_array(post_array,post1)
@@ -95,7 +90,11 @@ create_array(post_array,post3)
 create_array(post_array,post4)
 create_array(post_array,post5)
 
+
 first_blog=Blog.new(post_array)
 first_blog.publish_front_page
 
-
+require 'colorize'
+puts "I am now red.".red
+puts "I am now blue.".green
+puts "I am a super coder".yellow

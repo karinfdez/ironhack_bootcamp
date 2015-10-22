@@ -1,81 +1,130 @@
-class Blog
-	attr_accessor :post_array
+require 'pry'
+class Blog 
+	attr_accessor :items_page,:actual_page,:total_pages,:arg1,:arg2
 
-	def initialize(post_array)
-		@post_array=post_array  #takes the array of posts
-	end
+	def initialize(post_array,items_page)
+		@items_page=items_page
+		@actual_page=1
+		@items_page=items_page
+		items_float=items_page.to_f
+		@total_pages=(post_array.length/items_float).ceil
+		@arg1=0
+		@arg2=@items_page-1
+		@user_input=""
 
-	def publish_front_page 
-		
-		new_array=post_array.sort do |post1,post2| #If I put array.sort! I can change the original array without putting it inside a variable
+		@new_array=post_array.sort do |post1,post2| #If I put array.sort! I can change the original array without putting it inside a variable
 			post2.date <=> post1.date
 		end
-		
-
-		new_array.each do |hm|
-			
-			if hm.sponsor=="sponsored"
-
-					frontpage= 
-					  "\n\n*****#{hm.title}*****  #{hm.date}\n"+
-					   "---------------------------------------------------"+
-						"\n#{hm.text}\n"	
-					puts frontpage
-			
-			elsif hm.sponsor =="post"
-					frontpage=
-					  "\n\n#{hm.title}  #{hm.date}\n"+
-					  "-----------------------------------------------------"+
-					  "\n#{hm.text}\n"	
-					  puts frontpage
-			else
-				
-				puts "\n\nArticle's title: #{hm.title} is missing. It needs to be fill with 'sponsored' or 'post' categories. "
-			end
-
-		end
-
 	end
 
-# 	class Post
-#   	self.per_page = 10
-# end
+	def publish_front_page
+		@new_array[arg1..arg2].each do |hm|
+			hm.print_post
+	    end
+	    footer_page(@actual_page)
+	    
+    end
+
+    def footer_page(actual_page)
+    	
+    	
+    	if is_first_page?    #Blog is on page 1
+    		puts " \n\n EXIT   NEXT > "
+			 		user_input=gets.chomp
+			 		user_input=user_input.downcase
+    	
+    	elsif is_last_page? #I'm on last page
+				puts " \n\n < PREVIOUS  EXIT"
+				user_input=gets.chomp
+				user_input=user_input.downcase
+		else
+			puts " \n\n < PREVIOUS   EXIT   NEXT > "
+				user_input=gets.chomp
+				user_input=user_input.downcase
+    		
+    	end	
+       	
+    	if user_input=="next" && user_input!="exit"
+    		next_page
+   
+    	elsif user_input=="previous" && user_input!="exit"
+    	    prev_page
+
+    	end
+
+    end
 end
 
+	def is_last_page?
+		@actual_page >= total_pages
+	end
 
+	def is_first_page?
+		@actual_page == 1
+	end
+
+	def prev_page
+	    
+			if !is_first_page?
+				@actual_page-= 1
+				@arg1-=items_page
+				@arg2=@arg1+(@items_page-1)
+				puts @arg1
+				puts @arg2
+				publish_front_page
+			
+			elsif 
+				publish_front_page
+			end
+		
+    end
+	
+
+	def next_page
+		
+			if !is_last_page?
+				@actual_page+= 1
+				@arg1+=items_page
+				@arg2=@arg1+(@items_page-1)
+				publish_front_page
+		    
+		    else
+		    	publish_front_page
+
+	        end
+	    
+	end
 
 class Post
 	attr_accessor :title, :text, :date,:sponsor
+	
 	def initialize(title, date,text,sponsor)
 		@title=title
 		@date=date
 		@text=text
 		@sponsor=sponsor
 	end
-	
-end
 
-# class Time
-# 	attr_accessor :year,:month, :day, :hours,:minutes, :seconds
-# 	def initialize(year,month,day,hours,minutes,seconds)
-# 		@year=year
-# 		@month=month
-# 		@day=day
-# 		@minutes=minutes
-# 		@seconds=seconds
-# 	end
+	def print_post
+		if sponsor=="sponsored"
+			frontpage= 
+					  "\n\n***#{title}***  #{date}\n"+
+					   "-"* title.length+
+						"\n#{text}\n"	
+					
+					  puts frontpage
+		else 
+			frontpage=
+					  "\n\n#{title}  #{date}\n"+
+					  "-"* title.length+   #Prints "-" with a size of title
+					  "\n#{text}\n"	
+					  
+					  puts frontpage	
 
-# 	def <=> (other_time)
-# 		 <=> 
-# 	end
+	    end
+    end
 
-# 	def create_time
-# 		Time.new(year, month, day, hours, minutes,seconds)
-# 	end
-# end
-
-def create_array(array,post)
-	array.push(post)
+    
 end
 
 post1_time=Time.new(2015,10,25,12,45,18)
@@ -88,35 +137,7 @@ post4_time=Time.new(2015,10,26,9,24,18)
 post4=Post.new("This is a test",post4_time,"Who likes tests?","post")
 post5_time=Time.new(2015,10,24,9,24,18)	
 post5=Post.new("Have You done?",post5_time,"Almost finishing!!!!","post")
-															
-post_array=[]
-create_array(post_array,post1)
-create_array(post_array,post2)
-create_array(post_array,post3)
-create_array(post_array,post4)
-create_array(post_array,post5)
+array_post=[post1,post2,post3,post4,post5]
+karins_blog =Blog.new(array_post,3) #Array of post(first arg). Amount of post per page(2nd argument)
+karins_blog.publish_front_page
 
-
-first_blog=Blog.new(post_array)
-first_blog.publish_front_page
- 
-#  class Pagination 
-
-#   def index
-#     @users = User.paginate(:page => params[:page], :per_page => 3)
-#   end
-
-# end
-
-# class Post < ActiveRecord::Base
-#   cattr_reader :per_page
-#   @@per_page = 3
-# end
-# my_page=Pagination.index
-# puts my_page
-# my_page.index
-
-# require 'colorize'
-# puts "I am now red.".red
-# puts "I am now blue.".green
-# puts "I am a super coder".yellow

@@ -30,19 +30,18 @@ class Blog
     	
     	if is_first_page?    #Blog is on page 1
     		puts " \n\n EXIT   NEXT > "
-			 		user_input=gets.chomp
-			 		user_input=user_input.downcase
+			 		
     	
     	elsif is_last_page? #I'm on last page
 				puts " \n\n < PREVIOUS  EXIT"
-				user_input=gets.chomp
-				user_input=user_input.downcase
+				
 		else
 			puts " \n\n < PREVIOUS   EXIT   NEXT > "
-				user_input=gets.chomp
-				user_input=user_input.downcase
+				
     		
     	end	
+    	user_input=gets.chomp
+		user_input=user_input.downcase
        	
     	if user_input=="next" && user_input!="exit"
     		next_page
@@ -53,9 +52,9 @@ class Blog
     	end
 
     end
-end
 
-	def is_last_page?
+
+    def is_last_page?
 		@actual_page >= total_pages
 	end
 
@@ -69,17 +68,13 @@ end
 				@actual_page-= 1
 				@arg1-=items_page
 				@arg2=@arg1+(@items_page-1)
-				puts @arg1
-				puts @arg2
 				publish_front_page
 			
 			elsif 
 				publish_front_page
-			end
-		
+			end	
     end
 	
-
 	def next_page
 		
 			if !is_last_page?
@@ -91,9 +86,10 @@ end
 		    else
 		    	publish_front_page
 
-	        end
-	    
+	        end  
 	end
+end
+
 
 class Post
 	attr_accessor :title, :text, :date,:sponsor
@@ -123,7 +119,6 @@ class Post
 
 	    end
     end
-
     
 end
 

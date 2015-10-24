@@ -13,12 +13,10 @@ class Gamerunner
 
 			# first Game is over
 			if @game.class == Game && @game.end_of_room?
-				special_room = Space.new("This is the surprise game.", "happy")
+				special_room = Space.new("Great, you made it.This is the last room. To find the exit\n you should answer the next question:", "george washington")
 				@game = SurpriseGame.new([ special_room ])
 			end
 		end
-
-		@game.print_message_screen
 	end
 end
 
@@ -71,15 +69,6 @@ class Game
 		prompt_user
 		move_other_room	    
     end
-   
-
-    def print_message_screen
-    	if end_of_room?
-    		puts "Congratulations!!!!. You won the game."
-    	else
-    		puts "GAME OVER"
-        end
-    end
 end
 
 class SurpriseGame <Game
@@ -88,23 +77,18 @@ class SurpriseGame <Game
 		exit = @array[@location].exit
 
 	    loop do
-		    input=ask "Please decide what to type:'cry', 'overwhelmed' or 'happy'."
+		    input=ask "Who was the USA's first president:'Ronald Reagan', 'George Washington' or 'Richard Nixon'."
 		    input=input.chomp.downcase	
+		    if input !="george washington"
+		    	puts "Incorrect answer. Try again."
+		    end
 		    break if(input==exit)
-
-			puts case input
-				when 'cry'
-		  			"That's not a choice"
-				when 'overwhelmed'
-				  "You have to control yourself"
-				else
-				  "Those aren't the right commands"
-			end
 	    end
+	    print_message_screen
 	end
 
 	def print_message_screen
-		puts "That's the correct answer. Being happy is always the key to succeed."
+		puts "Congratulations. You won the Game!"
 	end
 end
 
@@ -121,10 +105,5 @@ room4=Space.new(description_room4,"s")
 array_rooms=[ room1,room2,room3,room4 ]
 game_of_rooms=Gamerunner.new(array_rooms)
 game_of_rooms.run_game
-# game_of_rooms=Game.new(array_rooms)
-# game_of_rooms.start_playing
-# # game_of_rooms.print_message_screen
-# surprise_game=SurpriseGame.new(array_rooms)
-# surprise_game.prompt_user
-# surprise_game.end_of_room
+
 

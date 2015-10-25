@@ -11,13 +11,14 @@ class Season_List
 		picked_season=ask "Please enter the actual season to display product's prices:\nYou can type 'Spring', 'Summer', 'Autumn' and 'Winter':"
 		picked_season.chomp.downcase
 		
-	  puts case picked_season
+	      case picked_season
 			when "spring"
 				productsMarket={
 			    	apples: 10, 
 			    	banana: 20,
 			    	oranges: 5,
 			    	grapes: 15,
+			    	watermelon: 50
 			    }
 			when "summer"
 				productsMarket={
@@ -25,6 +26,7 @@ class Season_List
 				    banana: 20,
 				    oranges: 2,
 				    grapes: 15,
+				    watermelon: 50
 			    }
 			
 			when "autumn"
@@ -33,6 +35,7 @@ class Season_List
 				    banana: 20,
 				    oranges: 5,
 				    grapes: 15,
+				    watermelon: 50
 			    }  
 			when "winter"
 				productsMarket={
@@ -40,14 +43,28 @@ class Season_List
 				    banana: 21,
 				    oranges: 5,
 				    grapes: 15,
+				    watermelon: 50
 			    }  
 
 			else
-			  "Thats not the correct season. Try again"
+			  "Thats not a valid season. Try again"
 			end
 		productsMarket
 	end
 
+	def isSunday?(productsMarket)
+		isSunday=ask "Today is Sunday?:\n Please answer 'Yes' or 'No'"
+		 case isSunday
+		 	when "yes"
+		 		productsMarket[:watermelon]=100  #Watermelon's price is doubled on sunday
+				
+		    when "no"
+		    	productsMarket[:watermelon]=50   #Watermelon's price is doubled on sunday
+			else
+				puts "Thats not the espected answer."
+			end
+		productsMarket
+	end
 end
 
 class ShoppingCart 
@@ -73,7 +90,6 @@ class ShoppingCart
   
     #Calculate the total cost of shopping cart
     def cost 
- 
         sum=0
     	list_products.each {|key,val| sum+= val}
     		puts "\nTotal cost: #{sum}$"
@@ -82,11 +98,13 @@ end
 
 
 list_season=Season_List.new
-list=list_season.season_input
-cart = ShoppingCart.new(list)
+prodList=list_season.season_input
+list_week=list_season.isSunday?(prodList)
+cart = ShoppingCart.new(list_week)
 cart.add_item_to_cart :apples
 cart.add_item_to_cart :banana
 cart.add_item_to_cart :banana
+cart.add_item_to_cart :watermelon
 cart.show
 cart.cost
 

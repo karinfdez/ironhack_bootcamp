@@ -4,7 +4,14 @@ class Season_List
 
 	attr_accessor :productsMarket
 	def initialize
-		@productsMarket={}
+		@productsMarket={
+			 apples: 10,
+			 oranges: 5,
+             grapes: 15,
+             banana: 20,
+             watermelon: 50
+
+		}
 	end
 
 	def season_input
@@ -13,41 +20,17 @@ class Season_List
 		
 	      case picked_season
 			when "spring"
-				productsMarket={
-			    	apples: 10, 
-			    	banana: 20,
-			    	oranges: 5,
-			    	grapes: 15,
-			    	watermelon: 50
-			    }
+				productsMarket
 			when "summer"
-				productsMarket={
-				    apples: 10, 
-				    banana: 20,
-				    oranges: 2,
-				    grapes: 15,
-				    watermelon: 50
-			    }
-			
+				    productsMarket[:oranges]=2
 			when "autumn"
-			  productsMarket={
-				    apples: 15, 
-				    banana: 20,
-				    oranges: 5,
-				    grapes: 15,
-				    watermelon: 50
-			    }  
+			 productsMarket[:apples]=15
 			when "winter"
-				productsMarket={
-				    apples: 12, 
-				    banana: 21,
-				    oranges: 5,
-				    grapes: 15,
-				    watermelon: 50
-			    }  
-
+				productsMarket[:apples]=12
+				productsMarket[:banana]=21
 			else
-			  "Thats not a valid season. Try again"
+			  puts "Thats not a valid season. Try again"
+			  season_input
 			end
 		productsMarket
 	end
@@ -59,7 +42,7 @@ class Season_List
 		 		productsMarket[:watermelon]=100  #Watermelon's price is doubled on sunday
 				
 		    when "no"
-		    	productsMarket[:watermelon]=50   #Watermelon's price is doubled on sunday
+		    	productsMarket[:watermelon]=50   
 			else
 				puts "Thats not the espected answer."
 			end

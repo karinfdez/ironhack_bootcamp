@@ -52,30 +52,41 @@ end
 
 class ShoppingCart 
 
-	attr_accessor :productsMarket, :list_products
+	attr_accessor :productsMarket
 
 	def initialize(product_list)
 
 	    @productsMarket=product_list
 	    @list_products={}
+	    @costItems=[]
     end
 	
 	def add_item_to_cart product_id      #Add the cost of the selected products
-		
-		list_products[product_id]=productsMarket[product_id]
+		@costItems.push(@productsMarket[product_id])
+	   
+	   if @list_products.has_key?(product_id)
+	   	@list_products[product_id]=@list_products[product_id]+1  #Add some values to item
+	   
+	   else
+		@list_products[product_id]=1   #Add 1 value to item
+	   end
 	end
 
 	#Show shopping cart list
 	def show
+		
+		#Show total items and prices
 		puts "\nShopping list: "
-        list_products.each {|key, val| print key, " ", val, "$\n"}     
+        @list_products.each {|key, val| print val, " ", key, " ",productsMarket[key], "$\n"}     
 	end
   
     #Calculate the total cost of shopping cart
     def cost 
-        sum=0
-    	list_products.each {|key,val| sum+= val}
-    		puts "\nTotal cost: #{sum}$"
+
+    	total=@costItems.reduce(0) do |sum,hm|
+    		sum+=hm   
+         end
+    puts total
     end
 end  
 
@@ -88,6 +99,6 @@ cart.add_item_to_cart :apples
 cart.add_item_to_cart :banana
 cart.add_item_to_cart :banana
 cart.add_item_to_cart :watermelon
-cart.show
-cart.cost
+ cart.show
+ cart.cost
 

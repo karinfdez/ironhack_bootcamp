@@ -264,9 +264,9 @@ class Knight < Piece
 	end
 end
 	
-class ListExecutions
+class MoveValidator
 
-	def check_movements
+	def validate_movements
 		puts "Rook piece"
 		rook = Rook.new(1,1, 'white')
 		rook.move(1,4)
@@ -330,6 +330,6 @@ class ListExecutions
     end
 end
 
-chest_game=ListExecutions.new
-chest_game.check_movements
+chest_game=MoveValidator.new
+chest_game.validate_movements
 

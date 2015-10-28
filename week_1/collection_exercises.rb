@@ -32,6 +32,7 @@ array_of_languages = [ruby, python, javascript, go, rust, swift, java]
  					hm   #This return all the array with the changes made.If I don't do this only return the age.
  				end
 def array_printer(array)
+	
 	array.each do |hm|
 		puts "Language: #{hm.name}, Age: #{hm.age}, Type: #{hm.type}"
 	end

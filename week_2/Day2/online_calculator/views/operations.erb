@@ -1,0 +1,61 @@
+<!-- views/add.erb -->
+<!doctype html>
+<html>
+<head>
+  <title>calculate | Online Calculator</title>
+</head>
+<body>
+  <h1>Operations with 2 numbers</h1>
+
+
+<!-- <label for="number_1">First number:</label>  Not necessary now for stetic reasons -->
+<!-- <input type="text" id="number_1" placeholder="Enter a number">  -->
+<!--input tag present inputs to the user -->
+<!--'type' is telling me which type of input expect from the user -->
+<!-- To link label tag with imput tag, I use the id name as the same name as the one thar "for" has   -->
+<!-- The value of the placeholder attribute should be some text to show while the input is empty. As soon as the input has real text entered, the placeholder disappears. -->
+<!-- <label for="number_2">Second number:</label> -->
+ 
+ <!-- POST method is route that receives and processes the information from the form. -->
+<!--The name attribute inside the input tag let me add both inputs inside the hash when pressing the button  -->
+   <!-- <form action="/add" method="POST"> Tells the browser which route to submit to  
+	<input type="number" name="first_number" placeholder="Enter the first number"> + 
+	<input type="number" name="second_number" placeholder="Enter the second number">  -->
+	<!-- <button type="submit">Add</button>    cause the browser to make the HTTP request specified by the <form> -->
+<!-- </form>  -->
+
+<!-- <form action="/substract" method="POST"> 
+	<input type="number" name="first_number2" placeholder="Enter the first number"> -
+	<input type="number" name="second_number2" placeholder="Enter the second number"> 
+	 <button type="submit">Substract</button> 	
+</form>
+
+<form action="/multiply" method="POST"> 
+	<input type="number" name="first_number3" placeholder="Enter the first number"> *
+	<input type="number" name="second_number3" placeholder="Enter the second number"> 
+	<button type="submit">Multiply</button> 
+	
+</form>
+
+<form action="/divide" method="POST"> 
+	<input type="number" name="first_number4" placeholder="Enter the first number"> / 
+	<input type="number" name="second_number4" placeholder="Enter the second number"> 
+	<button type="submit">Divide</button> 
+</form> 	 -->
+
+
+	<!-- <form action='/operations' method="POST"> -->
+
+	 <form action="/operations" method="POST">
+	  <input type="number" name="first_number" placeholder="Enter the first number"> 
+	  <input type="number" name="second_number" placeholder="Enter the second number"> 
+	  <button type="submit" name="operation" value="addition">ADD</button>
+	  <button type="submit" name="operation" value="substraction">SUBSTRACT</button>
+	  <button type="submit" name="operation" value="multiplication">MULTIPLY</button>
+	  <button type="submit" name="operation" value="division">DIVIDE</button>
+	</form> 
+
+
+</body>
+</html>
+

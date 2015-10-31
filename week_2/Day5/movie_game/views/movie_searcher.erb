@@ -1,0 +1,38 @@
+
+<% if @nineImages.length==0 %>
+	<h4>Sorry,'<%= @movieWord%>' is not on the list of movies</h4>
+<%else%>
+	
+  	<% if @numberQuestion.to_i==1 %>
+  		<h4> which film was directed by <%= @randomQuestion%>: </h4> 	
+  		
+    <% elsif @numberQuestion.to_i==2 %>
+    	 <h4> Which movie of <%= @movieWord %> was film on year <%= @randomQuestion %>: </h4>
+    <% else %>
+    	<h4> Which movie has <%= @randomQuestion %> points on ratings?
+    	
+    <% end %>
+
+    <ul>
+		<% @nineImages.each do |hm| %>
+			<!--?????? I want to put this case on top where I'm comparing the @numberQuestion.-->
+			<!-- but it's giving me problems. How do I do that? -->
+			<% case @numberQuestion.to_i %>
+				<% when 1 %>
+					<% movieIndex=hm.director %>
+				<% when 2 %>
+					<% movieIndex=hm.year%>
+				<% when 3%>
+					<% movieIndex=hm.rating%>
+			<% end %>
+		  <%if movieIndex ==@randomQuestion%>
+			<img onclick="alert('CORRECT ANSWER')" src="<%=" #{hm.poster}" %>" width="500">
+			<%else %>
+			<img onclick="alert('WRONG ANSWER')" src="<%=" #{hm.poster} " %>" width="500">
+		  <% end %>
+	    <% end %>
+	</ul>
+<% end %>
+ <a href="/questions"><button type="submit" name="game" value="questions">Next question</button></a>
+ <a href="/"><button type="submit" name="game" value="home">Home</button></a>
+

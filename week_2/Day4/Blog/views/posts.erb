@@ -1,0 +1,12 @@
+<h3>List of posts by title</h3>
+<h5>For more details, click on any post</h5>
+
+<ul>
+	<% number=1 %>
+	<% @sorted_blog.each do |post| %>
+	  <li><a href= "/post_details/<%= number%>"><%= post.title %></a></li>
+	  <% number+=1 %>
+	<% end %>
+</ul>
+
+<a href="/new_post?">Create new post<a>

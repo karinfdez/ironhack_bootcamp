@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lan="en">
+	<head>
+		<meta charset="UTF-15">
+		<title>Bootstrap</title>
+<!-- Link to call Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+	<body>
+	<!-- To add a Bootstrap feature use a class name. To add other class, just leave a space and add the other one-->
+		<form>
+		  <!-- a class should be inside another class in order to style in Bootstrap  -->
+		  <div class="form-group">
+		    <label>Email address</label>
+		    <input type="email" class="form-control">
+		  </div>
+
+		  <button type="submit" class="btn btn-default">
+		    Submit
+		  </button>
+		</form>
+
+		<!-- To add rows with a number of colums. Put everything inside a div class "container" -->
+		<div class="container">
+  			<div class="row">
+   			 <!-- your columns here -->
+		<!-- The way you insert headings on bootstrap -->
+   			<h1>h1. Bootstrap heading</h1>
+			<h2>h2. Bootstrap heading</h2>
+			<h3>h3. Bootstrap heading</h3>
+			<h4>h4. Bootstrap heading</h4>
+			<h5>h5. Bootstrap heading</h5>
+			<h6>h6. Bootstrap heading</h6>
+			<!-- What is the difference between the navbar and the alert class?. They look the same -->
+			<nav class="navbar navbar-default">
+				<li>Hello</li>
+				<lkGoodbye
+			</nav>
+ 			 </div>
+ 			 <div class="row">
+    			<!-- To add a field with text inside. Para resaltar el contenido -->
+    			<div class="jumbotron">
+  					<h1>The most amazing thing you've ever seen.</h1>
+				</div>
+ 			 </div>
+		</div>
+		<!-- Adding 2 columns of width 6 each on a same row -->
+		<div class="container">
+  			<div class="row">
+	  			<div class="col-sm-6">
+			     <button class="btn btn-default">Click me!</button>
+				<!-- I can create a button using an anchor element and a class with a button properties -->
+			     <a class="btn btn-primary" href="/pizza.html">Go to my pizza page</a>
+			     <!-- To add a form on bootstrap. Se usa el class="form-group"-->
+			     <form>
+					  <div class="form-group">
+					    <label for="orders">How many orders will you make?</label>
+					    <input type="number" class="form-control" id="orders" name="orders">
+					  </div>
+				</form>
+			    </div>
+			    <!-- Add the class close to a button to apply styles for a generic close icon. -->
+			    <button type="button" class="close">
+  					<span>&times;</span>
+				</button>
+
+    		    <div class="col-sm-6">
+		         	<!-- To insert a table -->
+		         	<table class="table">
+				 <!-- <thead> tag for the table's headings  -->
+					  <thead>
+					    <!-- <tr> Table row tags -->
+					    <tr>
+					    <!-- Here goes the top content of the table -->
+					      <th>Food</th>
+					      <th>Deliciousness</th>
+					    </tr>
+					  </thead>
+				  <!-- <tbody> for the table's contents -->
+					  <tbody>
+					   <!-- Here goes the rows on the body(we use td) -->
+					    <tr>
+					      <td>Pizza</td>
+					      <td>100%</td>
+					    </tr>
+					    <tr>
+					      <td>Icecream</td>
+					      <td>80%</td>
+					    </tr>
+
+					    <!-- more rows -->
+					   </tbody>
+					 </table>
+		        </div>
+  		    </div>
+ 		    <div class="row">
+		  		<!-- Use the classes above to align text to the left or to the right -->
+		  		<div class="pull-right">
+				  This element will be pulled all the way to the right.
+				</div>
+
+				<div class="pull-left">
+					  This element will be pulled all the way to the left.
+				</div>
+  	        </div>
+  	        <!-- The text-hide class will make text invisible but other details such as background and border will still be visible. This is normally used to replace a text element with an image background.  -->
+  	        <div class="hidden">I'm invisible, but also out of the flow of document.</div>
+			<div class="invisible">I'm invisible, but still take space.</div>
+			<div class="text-hide">Only my text is invisible.</div>
+			<!-- Add icons to the page -->
+			<span class="glyphicon glyphicon-fire"></span>
+
+			<!-- Show a green band with this message inside.If I use alert-success prints a red band -->
+			<div class="alert alert-success">
+			  <strong>Here we go!</strong>
+			  Your order was placed successfully.
+			</div>
+        </div>
+	</body>
+</html>

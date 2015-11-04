@@ -1,0 +1,135 @@
+
+/*Apply background-color to all the rows that are on top*/
+.navigation,
+.columns
+{
+	background-color: #287a8e;
+	
+}
+.navigation{
+	height: 45px;
+}
+
+/*Separation between buttons*/
+.left{
+	padding-top: 15px;  
+    font-weight: 700;     /*Puts the text bold */
+    color:#fff;
+}
+.navButton{
+	margin-right: 10px;
+}
+#right-button {
+    margin-left: 8px;
+    opacity: 0.5;
+}
+
+.right{
+	padding-top: 5px;  
+}
+
+/*Creating green button where is a link*/
+.sign_up_free{
+	background-color: #61bd4f;
+	color:white;                    /*???????How to add height to the buttom. I tried with height*/
+	box-shadow: 0 1px 0 #3f6f21;
+	padding:9px;
+	border-radius: 3px;
+}
+.sign_up_free:hover{
+	text-decoration: none;
+	background-color:#24a615;
+	color:white;
+}
+/* unvisited link */
+.links:link {
+    text-decoration: underline;
+    color: #847b62;
+}
+
+/*Keeps the same color after visited page*/
+.links:visited {
+    color: #847b62;
+}
+/*Change color when pass mouse over text*/
+.links:hover{
+	color:black;
+}
+/*Style the nav bar on above the list*/
+.menu{
+	line-height: 40px;
+
+}
+.right_align{
+	margin-right: 20px;
+	text-decoration: none;
+	color:white;
+}
+.right_align:hover{
+	text-decoration: none;
+	background-color: #9babb0;
+	border-radius: 3px;
+}
+
+/*Beige bar*/
+#header_bar{
+
+	height: 60px;
+	background-color: #f5dfa1;  
+	text-align: center;
+	padding-top: 22px;
+}
+.row.beigeBar p{
+	font-weight: 700;
+}
+/*Remove dots from list*/
+.list{
+	 list-style-type: none;
+	 background-color: #cad3d5;
+	 border-radius: 3px;
+}
+/*takes 90% of the portview's height*/
+.columns {
+	height: 90vh;
+}
+/*Columns's title*/
+.listTitle{
+	font-weight: 700;
+}
+/*To remove the default align that bootStrap does*/
+.list{
+	padding: 9px;
+}
+/*Content inside the list*/
+.whiteSpaces{
+	background-color: white;
+	margin-bottom: 8px;
+	line-height:40px;
+	border-radius: 3px;
+	text-align: center;
+}
+.whiteSpaces:hover{
+	background-color: white;
+	opacity: 0.3;
+}
+/*Right column*/
+.lastColumn{
+	padding:0;
+	height: 90vh;
+	background-color: #287a8e;
+}
+/*Adds more padding where 2 lines go inside the menu*/
+.height{
+	padding:6px;
+}
+.wide{
+	padding:10px;
+}
+.rowContent:hover{
+	background-color: #9babb0;
+	border-radius: 3px;
+	
+}
+.line{
+	border-bottom: 1.5px solid #aebbbf; }
+}

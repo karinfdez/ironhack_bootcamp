@@ -6,17 +6,25 @@ function decodeMessage(sentence,orientation,typeWords){
 	
 	arrayWords=sentence.split(" ");
 	
-	function filterWords(value) {
-  			if (typeWords==="even")
-  				return value.length%2===0;
-  			else if(typeWords==="odd")
-  				return value.length%2!==0;
-  			else
-  				return value.length;
-    }
-
-	var filteredArray = arrayWords.filter(filterWords);
+	function filterEvenWords(element, index){   //When working with index I use always 2 arguments
+		if (index % 2 === 0){
+			return true;
+		}	
+	}
+	function filterOddWords(element, index){
+		if (index % 2 !== 0){
+			return true;
+		}	
+	}
 	
+	var filteredArray=[];
+	if(typeWords==="even")
+		filteredArray = arrayWords.filter(filterEvenWords);
+	
+	else
+		filteredArray = arrayWords.filter(filterOddWords);
+	
+
 	if (orientation=="backwards") {
 		arrayWords=filteredArray.reverse();
 	}
@@ -59,6 +67,6 @@ function getLetters(arrayWords){
 
 decodeMessage(sentence,"backwards","odd");
 decodeMessage(sentence,"backwards","even");
-decodeMessage(sentence,"forwards","odd");
-decodeMessage(sentence,"forwards","even");
+// decodeMessage(sentence,"forwards","odd");
+// decodeMessage(sentence,"forwards","even");
 

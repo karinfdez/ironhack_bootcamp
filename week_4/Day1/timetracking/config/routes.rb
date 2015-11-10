@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   get '/' => 'site#home'
 
   get '/contact' => 'site#contact'   #Same controller, different action
+  get '/projects' => "projects#index"
 end
 
 

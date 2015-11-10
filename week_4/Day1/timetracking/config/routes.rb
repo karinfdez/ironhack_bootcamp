@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
   get '/contact' => 'site#contact'   #Same controller, different action
   get '/projects' => "projects#index"
+  get 'projects/:id'=>'projects#show'
 end
 
 

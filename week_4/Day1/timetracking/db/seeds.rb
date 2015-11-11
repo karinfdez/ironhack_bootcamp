@@ -31,7 +31,14 @@ new_projects.each do |proj|
     # If it doesn't exist (nil), save it
     puts "Creating Project: #{proj.name}"
     proj.save
+
+    proj.entries.create(hours: 3,minutes: 47)  #Create the same entry for each project with different id's
+    # entr=proj.entries.create(hours: 4,minutes: 43)
+    proj.entries.create(hours: 2,minutes: 50)
+    proj.entries.create(hours: 3,minutes: 45)
   end
+
+
 end
 
 puts "Seeds end!"

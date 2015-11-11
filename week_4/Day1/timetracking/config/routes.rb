@@ -58,10 +58,18 @@ Rails.application.routes.draw do
   get '/' => 'site#home'
 
   get '/contact' => 'site#contact'   #Same controller, different action
-  get '/projects' => "projects#index"
-  get 'projects/:id'=>'projects#show'
-  get 'project/new'=>'projects#new'
-  post '/projects'=>'projects#create'
+
+  resources :projects do
+    resources :entries
+  end
+ 
+ 
+  # get '/projects' => "projects#index"
+  # get 'projects/:id'=>'projects#show'
+  # get 'project/new'=>'projects#new'
+  # post '/projects'=>'projects#create'
+  # get "/projects/:project_id/entries"=>"entries#index"
+  # get "/projects/:project_id/entries/new"=>"entries#new"
 end
 
 

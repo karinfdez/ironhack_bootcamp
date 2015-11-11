@@ -1,11 +1,12 @@
-<ul>
-	<% @projects.each do |project| %>
-		<% if project.name=="Ironhack" %>   <!-- Only show me the projects with that name-->
-			<li><%= project.name %>
-				 <% if !(project.description.nil?)%></li>   <!--Same as saying proyect.description!=nil? -->
-				"We have a description"
-				<%= project.description %></li>
-				<%end%>
-		<% end %>
-	<% end%>
-</ul>
+
+	<ul>
+		<% @projects.each do |project| %>
+			<%# if project.name=="Ironhack" %>   <!-- Only show me the projects with that name-->
+				<li><%= project.name %>
+					 <% if !(project.description.nil?)%></li>   <!--Same as saying proyect.description!=nil? -->
+					
+					<%= project.description %>
+					<%end%>
+			<% end %>
+		<%# end%>
+	</ul>

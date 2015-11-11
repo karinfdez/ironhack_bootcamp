@@ -6,7 +6,17 @@
 	<%=@proj.name%>
 </h3>
 
-<%= form_for [@proj, @entry] do |f| %>  <!-- Show the entire form -->
+<%if @entr.errors.any?%>
+	<ul>
+		<% @entr.errors.full_messages.each do |error| %>
+		<li>
+			<%= error %>
+		</li>
+		<% end%>
+	</ul>
+<% end %>
+
+<%= form_for [@proj, @entr] do |f| %>  <!-- Show the entire form -->
 	<%= f.label :hours %>
 	<%= f.text_field :hours %>
 	<%= f.label :minutes %>

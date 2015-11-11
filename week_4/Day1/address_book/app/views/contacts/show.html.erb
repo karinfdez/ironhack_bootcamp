@@ -1,0 +1,22 @@
+
+<h1>Contact details</h1>
+<label for="contact_name">Name:</label>
+<%= @contacts.name %><br>
+
+<label for="contact_address">Address:</label>
+<%= @contacts.address %><br>
+
+<label for="contact_phone_number">Phone Number:</label>
+<%= @contacts.phone_number %><br>
+
+<label for="contact_email_address">Email address:</label>
+<%= @contacts.email_address %><br>
+
+<form action="/contacts/<%= @contacts.id %>/favorite" method="POST">
+	 <button type="submit">Mark as favorite</button>
+     <input type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+</form>
+
+
+  

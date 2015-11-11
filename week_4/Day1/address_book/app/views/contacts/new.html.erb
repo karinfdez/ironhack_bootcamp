@@ -13,23 +13,21 @@
 
   <div>
     <label for="contact_phone">Phone number</label>
-    <input type="tel" name="contact[phone]" id="contact_phone">
+    <input type="tel" name="contact[phone_number]" id="contact_phone">
   </div>
 
   <div>
     <label for="contact_email">Email</label>
-    <input type="email" name="contact[email]" id="contact_email">
+    <input type="email" name="contact[email_address]" id="contact_email">
   </div>
-
-  <form >
-  <!-- [...] -->
 
   <button type="submit">Add this contact</button>
    <input type="hidden" name="authenticity_token"
       value="<%= form_authenticity_token %>">
-    
-
 </form>
+<a href="/">Go to contacts</a>
+
+
 
 <!-- app/views/contacts/new.html.erb -->
 

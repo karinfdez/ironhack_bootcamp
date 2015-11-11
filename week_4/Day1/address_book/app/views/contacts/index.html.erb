@@ -1,8 +1,12 @@
+
+
+<h1>List of contacts</h1>
 <ul>
 	<% @contacts.each do |contact| %>
-			<li><%=contact.name%>
+		<a href="/projects/<%= contact.id %>"><li><%=contact.name%>
 			<%=contact.address%>
 			<%=contact.phone_number%>
-			<%=contact.email_address%></li>
+			<%=contact.email_address%></li></a><br>
 		<%end%>
 </ul>
+<a href='/contacts/new'><button type="submit">Create new contact</button></a>

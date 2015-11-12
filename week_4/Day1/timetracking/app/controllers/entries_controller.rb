@@ -15,7 +15,7 @@ class EntriesController < ApplicationController
 	def new
 		id=params[:project_id]
 		@proj=Project.find_by(id: id)
-		@entry=@proj.entries.new
+		@entr=@proj.entries.new
 		render("new")
 	end
 

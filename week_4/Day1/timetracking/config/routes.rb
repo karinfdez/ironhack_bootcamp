@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :entries
   end
+  post '/projects'
  
  
   # get '/projects' => "projects#index"

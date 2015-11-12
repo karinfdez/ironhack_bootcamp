@@ -6,22 +6,43 @@
 	<%=@proj.name%>
 </h3>
 
-<%if @entr.errors.any?%>
-	<ul>
-		<% @entr.errors.full_messages.each do |error| %>
-		<li>
-			<%= error %>
-		</li>
-		<% end%>
-	</ul>
-<% end %>
+<%#if @entr.errors.any?%>
+	<!-- <ul> -->
+		<%# @entr.errors.full_messages.each do |error| %>
+		<!-- <li> -->
+			<%#= error %>
+		<!-- </li> -->
+		<%#end%>
+	<!-- </ul> -->
+<%# end %>
 
 <%= form_for [@proj, @entr] do |f| %>  <!-- Show the entire form -->
-	<%= f.label :hours %>
-	<%= f.text_field :hours %>
-	<%= f.label :minutes %>
-	<%= f.text_field :minutes %>
-	<%= f.label :date %>
-	<%= f.date_field :date%>
-	<button type="submit">Submit</button>
+	<div>
+		<%= f.label :hours %>
+		<%= f.text_field :hours %>
+		<ul>
+			<% @entr.errors[:hours].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+		<%= f.label :minutes %>
+		<%= f.text_field :minutes %>
+
+		<ul>
+			<% @entr.errors[:minutes].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+		<%= f.label :date %>
+		<%= f.date_field :date%>
+
+		<ul>
+			<% @entr.errors[:date].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+	</div>
+
+   <%=f.submit "Save" %>  	<!-- Button-->
+	<!-- <button type="submit">Submit</button> -->
 <% end %>

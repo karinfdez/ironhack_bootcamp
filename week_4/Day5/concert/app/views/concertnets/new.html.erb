@@ -1,0 +1,60 @@
+<h1>Create new concert</h1>
+
+
+<%= form_for [@concerts] do |f| %>  <!-- Show the entire form -->
+	<div>
+		<%= f.label :artist %>
+		<%= f.text_field :artist %>
+		<ul>
+			<% @concerts.errors[:artist].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+		
+		<%= f.label :venue%>
+		<%= f.text_field :venue %>
+		
+		<ul>
+			<% @concerts.errors[:venue].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+		
+		<%= f.label :city%>
+		<%= f.text_field :city%>
+		<ul>
+			<% @concerts.errors[:city].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+
+		<%= f.label :date%>
+		<%= f.date_field :date%>
+		<ul>
+			<% @concerts.errors[:date].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+
+		<%= f.label :price%>
+		<%= f.text_field :price%>
+		<ul>
+			<% @concerts.errors[:price].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+
+		<%= f.label :description%>
+		<%= f.text_field :description%>
+
+		<ul>
+			<% @concerts.errors[:description].each do |err| %>
+				<li><%=err %></li>
+					<%end %>
+		</ul>
+	</div>
+
+   <%=f.submit "Save" %>  	<!-- Button-->
+	<!-- <button type="submit">Submit</button> -->
+<% end %>
+

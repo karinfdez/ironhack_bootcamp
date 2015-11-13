@@ -1,26 +1,33 @@
-<h1>List of Todays concerts:</h1>
-
-<ul>
-	<% @concerts.each do |concert| %>
-	<li>
-		Artist:<%= concert.artist %><br>
-		Date:<%= concert.date %><br><br>
-		Avenue:<%= concert.venue %><br>
-		Price/p:<%= concert.price%><br><br>
-	</li>
-	<% end %>
-</ul>
-<% @concert_month.sort.each do |month, concert| %>
-  <h2><%= month.strftime('%B') %></h2>
-  <% for concert in concertnets %>
-    <div>
-      <strong><%= concert.artist %></strong>
-      due on <%= concert.due_at.to_date.to_s(:long) %>
-    </div>
-  <% end %>
-<% end %>
-
-<a href='/concertnets/new'>Create concert</a>
 
 
+<div class="main">
+<h1>Concerts for <%=@date%></h1>
+	<ul>
+		<% @concerts.each do |concert| %>
+		<li>
+			Artist:<%= concert.artist %><br>
+			Date:<%= concert.date %><br><br>
+			Avenue:<%= concert.venue %><br>
+			Price/p:<%= concert.price%><br><br>
+		</li>
+		<% end %>
+		<a href='/concertnets/new'>Create concert</a>
+	</ul>
+</div>
+
+
+<div class="month_concerts">
+<h1>Concerts for this month:</h1>
+
+	<ul>
+		<% @concerts_month.each do |concert| %>
+		<li>
+			Artist:<%= concert.artist %><br>
+			Date:<%= concert.date %><br><br>
+			Avenue:<%= concert.venue %><br>
+			Price/p:<%= concert.price%><br><br>
+		</li>
+		<% end %>
+    </ul>
+</div>
 

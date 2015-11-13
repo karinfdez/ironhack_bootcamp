@@ -2,9 +2,8 @@ class ConcertnetsController < ApplicationController
 	def index
 		# @concerts=Concertnet.all
 		@concerts=Concertnet.where(date: (DateTime.now.beginning_of_day..DateTime.now.end_of_day))
-		# @concertsAll = Concertnet.find(:all, :order => 'due_at, id', :limit => 50)
-  # 		@concert_month = @concertsAll.group_by { |t| t.due_at.beginning_of_month }
-    
+		@concerts_month=Concertnet.where(date: (Date.today.beginning_of_month..Date.today.end_of_month))
+		@date = Date.today  
 		render 'index'
 	end
 	

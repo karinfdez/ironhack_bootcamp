@@ -1,2 +1,4 @@
 class TodoList < ActiveRecord::Base
-end
+	validates :title, presence: true
+	validates :title, length: { minimum: 3 } #Minimum 3 characters to enter title.
+end  

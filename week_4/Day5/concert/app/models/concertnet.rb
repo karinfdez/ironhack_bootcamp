@@ -5,4 +5,6 @@ class Concertnet < ActiveRecord::Base
 	validates :city,presence: true
 	validates :date, presence: true
 	validates :price,numericality: true
+
+	has_many :comments
 end

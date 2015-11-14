@@ -25,6 +25,7 @@ class ConcertnetsController < ApplicationController
 	end
 
 	def show
+		@date = Date.today  
 	end
 
 	private

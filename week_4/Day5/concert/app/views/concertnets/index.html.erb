@@ -4,12 +4,13 @@
 <h1>Concerts for <%=@date%></h1>
 	<ul>
 		<% @concerts.each do |concert| %>
-		<li>
+		<a href='/concertnets/<%=concert.id %>/comments'><li>
 			Artist:<%= concert.artist %><br>
-			Date:<%= concert.date %><br><br>
+			Date:<%= concert.date %><br>
 			Avenue:<%= concert.venue %><br>
 			Price/p:<%= concert.price%><br><br>
-		</li>
+		</li></a>
+
 		<% end %>
 		<a href='/concertnets/new'>Create concert</a>
 	</ul>
@@ -23,7 +24,7 @@
 		<% @concerts_month.each do |concert| %>
 		<li>
 			Artist:<%= concert.artist %><br>
-			Date:<%= concert.date %><br><br>
+			Date:<%= concert.date %><br>
 			Avenue:<%= concert.venue %><br>
 			Price/p:<%= concert.price%><br><br>
 		</li>

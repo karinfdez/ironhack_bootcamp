@@ -1,18 +1,15 @@
-class Blog 
-	attr_accessor :items_page,:actual_page,:total_pages,:arg1,:arg2
 
-	def initialize(post_array,items_page)
-		@items_page=items_page
+class Blog 
+
+	def initialize
 		@actual_page=1
-		@items_page=items_page
-		items_float=items_page.to_f
-		@total_pages=(post_array.length/items_float).ceil
-		@arg1=0
-		@arg2=@items_page-1
 		@user_input=""
-		@post_array=post_array
-		# @new_array=[]
+		@post_array=[]
 		
+	end
+
+	def add_post(post)
+		@post_array.push(post)
 	end
 
 	def get_latest_posts
@@ -21,7 +18,6 @@ class Blog
 			post2.date <=> post1.date
 		end
 		new_array
-		
 	end
 
 	def publish_front_page
@@ -29,12 +25,9 @@ class Blog
 			hm.print_post
 	    end
 	    footer_page(@actual_page)
-	    
     end
 
     def footer_page(actual_page)
-    	
-    	
     	if is_first_page?    #Blog is on page 1
     		puts " \n\n EXIT   NEXT > "
 			 		
@@ -45,7 +38,6 @@ class Blog
 		else
 			puts " \n\n < PREVIOUS   EXIT   NEXT > "
 				
-    		
     	end	
     	user_input=gets.chomp
 		user_input=user_input.downcase

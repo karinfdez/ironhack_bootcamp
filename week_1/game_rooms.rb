@@ -1,5 +1,6 @@
 require "highline/import"  #Prompt user and get his/hers input
-require 'pry'
+require "pstore"  #To call the PStore
+
 class Gamerunner 
 	
 	# attr_reader :location
@@ -30,6 +31,7 @@ class Gamerunner
 			@game.prompt_user
 		end
     end
+
 end
 
 class Space
@@ -51,16 +53,13 @@ class Game
 	def initialize (array)   #variable hold the array of rooms
 		@location=0
 		@array=array
-
-
 	end
 
     def message_user	
     	puts @array[@location].description_room 	
     end
 
-    def prompt_user
-	  	   
+    def prompt_user	   
 	    loop do
 			room_exit= @array[@location].exit
 		    input=ask "Exit is: #{room_exit}"
@@ -114,6 +113,7 @@ class GameObjects <SurpriseGame
 
 	def pickObjects(object)
 		@arrayObjects.push(object)
+
 	end
 
 	def prompt_user
@@ -147,7 +147,7 @@ end
 
 class GiftObject <GameObjects
 
-	
+
 	def prompt_user
 		exit = @array[@location].exit
 		exit_split=exit.split(" ")
@@ -175,6 +175,31 @@ class GiftObject <GameObjects
 
 end
 
+# class FilePersistence 
+
+# 	@arrayO=["hello","good bye"]
+# 	@dataUser << { :username  => "Karin",
+#                    :arrayObject=> @array
+#                     }
+	
+# 	def storeData
+# 	store = PStore.new("dataPlayer.pstore")  #If the file doesn’t exist, it’ll be created; otherwise, the existing data will be read.
+
+# 	store.transaction do                     #Save the array of user object to a txt doc.
+# 	  store[:arrayObject] = "playerObject.txt"
+# 	end
+
+#     player = User.get_current_user
+#     store.commit unless player
+#     store[:arrayObject] = player
+#     end
+
+#     def readData
+#     	array_object = store.transaction { store[:arrayObject] }
+#     	puts array_object
+#     end
+# end
+
 description_room1= "You are on an empty room.There is a door:"
 room1=Space.new(description_room1,"N")
 description_room2="This room doesn't have lights. Be careful!.Move now to the next room"
@@ -184,5 +209,6 @@ room3=Space.new(description_room3,"W")
 array_rooms=[ room1,room2,room3 ]
 game_of_rooms=Gamerunner.new(array_rooms)
 game_of_rooms.run_game
+# game_of_rooms.filePersistence
 
 

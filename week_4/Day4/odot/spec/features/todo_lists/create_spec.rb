@@ -60,4 +60,50 @@ describe "Creating todo lists" do
 	   	expect(page).to_not have_content("This is what I'm doing today")
 
 	end
+
+	it "displays an error when the todo list has no description" do
+		#Expect that database is clear after each test
+		expect(TodoList.count).to eq(0) 
+
+		#testing the same as before but with title empty
+		visit "/todo_lists"  #Testing that the url to the todo list is working
+		click_link "New Todo list"
+		expect(page).to have_content("New Todo List")  #When press the link show me the page that
+														#says "New Todo List"
+	    #To test that the form works:
+	    fill_in "Title", with:"Task"
+	    fill_in "Description", with:""
+	    click_button "Create Todo list"  #This is the button name
+
+	    expect(page).to have_content("error")
+	   	expect(TodoList.count).to eq(0)  #To make sure again database is in blank.
+
+	   	visit "/todo_lists" 
+	   	#To make sure is not saving the content of description.
+	   	expect(page).to_not have_content("Task")
+
+	end
+
+	it "displays an error when the todo list has a description with less than 3 characters" do
+		#Expect that database is clear after each test
+		expect(TodoList.count).to eq(0) 
+
+		#testing the same as before but with title empty
+		visit "/todo_lists"  #Testing that the url to the todo list is working
+		click_link "New Todo list"
+		expect(page).to have_content("New Todo List")  #When press the link show me the page that
+														#says "New Todo List"
+	    #To test that the form works:
+	    fill_in "Title", with:"Hello"
+	    fill_in "Description", with:"No"
+	    click_button "Create Todo list"  #This is the button name
+
+	    expect(page).to have_content("error")
+	   	expect(TodoList.count).to eq(0)  #To make sure again database is in blank.
+
+	   	visit "/todo_lists" 
+	   	#To make sure is not saving the content of description.
+	   	expect(page).to_not have_content("Hello")
+
+	end
 end

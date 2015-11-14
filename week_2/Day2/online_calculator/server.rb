@@ -56,7 +56,7 @@ post "/operations" do
     
 end
 
-post "/save_result" do  #Calling the button with the form name
+post "/save_result" do  #Calling the save button with the form name
 	value=params[:button]      #Takes the key name of the save button
 	somefile = File.open("result.txt", "a")
 	somefile.puts "the result is #{value}"

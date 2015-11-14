@@ -4,12 +4,15 @@ require "./lib/postClass.rb"
 require "./lib/blogClass.rb"
 enable(:sessions)  #Save the state of your page
 
-@post1=Post.new("Welcome to Miami","Miami is the Sunchine state","sponsored")
-@post2=Post.new("San Franciso is the best place to live","There is no place like San Francisco.","post")
-@post3=Post.new("Best arquitecture?","I visited New York on winter!.","sponsored")	
-@post4=Post.new("This is a test","Who likes tests?","post")
-@array_post=[@post1,@post2,@post3,@post4]
-blog=Blog.new(@array_post,3)
+@post1=Post.new("Welcome to Miami","Miami is the Sunchine state")
+@post2=Post.new("San Franciso is the best place to live","There is no place like San Francisco.")
+@post3=Post.new("Best arquitecture?","I visited New York on winter!.")	
+@post4=Post.new("This is a test","Who likes tests?")
+blog=Blog.new
+blog.add_post(@post1)
+blog.add_post(@post2)
+blog.add_post(@post3)
+blog.add_post(@post4)
 
 get "/post_titles" do
 	@sorted_blog = blog.get_latest_posts
@@ -23,9 +26,15 @@ get '/post_details/:id' do
 end
 
 get "/new_post?" do
+
 	erb(:create_post)
 end
 
- post '/user_input' do
- 	
+post "/new_post" do
+	title=params[:title]
+	text=params[:text]
+	@userPost=Post.new(title,text)
+	@array=blog.add_post(@userPost)
+	erb(:create_post)
 end
+

@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
 	end
 
 	def new
+		@contact=Contact.new
 		render "new"
 	end
 
@@ -20,22 +21,24 @@ class ContactsController < ApplicationController
 	      :address => params[:contact][:address],
 	      :phone_number => params[:contact][:phone_number],
 	      :email_address => params[:contact][:email_address])
-		
+		  @contact.save
 		# puts "ASDFDFGFGDFGDFGDFGDFGDFGDFGD================"
 		# p contact.name
 		# p contact.address
-		if !(@contact.name=="" && @contact.address=="") #VALIDATION
-			@contact.save
-			redirect_to("/")   #To all the lists of contacts, included the new one that I created
-		
-		    # render(:text => contact.attributes)
-		    # render(:text => "save")
-		else
-			# @contact
-		    render(:text => "Fill the name or address fields")
-		end
+		# if !(@contact.name=="" && @contact.address=="") #VALIDATION
+			
+			# Here goes the flash message:
+			if @contact.save 
+	      		flash[:notice] = "Contact created successfully" 
+	     		redirect_to contacts_path(@contact) 
+	        else 
+	     		 render 'new' 
+	    	end 
+
+			# redirect_to("/")   #To all the lists of contacts, included the new one that I created
 		
 	end
+	
 
 	def show
 
@@ -68,9 +71,54 @@ class ContactsController < ApplicationController
 		end
 	end
 
-	# def findcontact
-	# 	name=params[:name]
-	# 	@contacts=Contact.where(name: )
-	# end
+	def edit
+		id=params[:id]
+		@contact=Contact.find_by(id: id)
+
+		if(@contact==nil)
+			redirect_to("/404")
+		else
+			render "edit"
+	    end
+	end
+
+	def update
+
+	    id = params[:id]
+	    @contact =Contact.find_by(id: id)
+
+	    if @contact == nil
+	      redirect_to("/404")
+	    else
+	       if @contact.update_attributes(contact_params)
+      			flash[:notice] = "Contact edited successfully" 
+     			redirect_to contacts_path(@contact) 
+            else 
+     		 render 'edit' 
+    	    end 
+		end
+	end
+
+	def destroy
+		id=params[:id]
+		@contact=Contact.find_by(id: id)
+
+		if(@contact==nil)
+			redirect_to("/404")
+		else
+			@contact.destroy
+	    end
+
+		if @contact.destroy
+      		flash[:notice] = "Contact deleted successfully" 
+     		redirect_to contacts_path
+        end 
+
+	end
+
+	private
+	def contact_params
+		params.require(:contact).permit(:name, :address, :phone_number, :email_address)  #Create a project with attributes name and description
+	end
 
 end

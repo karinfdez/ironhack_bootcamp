@@ -1,12 +1,23 @@
-
+<% if flash[:notice] %> 
+  <!-- Goes inside a div when I want to apply css to te message -->
+  <div class="notice">
+	  <%= flash[:notice] %> 
+  </div>
+<% end %> 
 
 <h1>List of contacts</h1>
 <ul>
 	<% @contacts.each do |contact| %>
-		<a href="/projects/<%= contact.id %>"><li><%=contact.name%>
-			<%=contact.address%>
-			<%=contact.phone_number%>
-			<%=contact.email_address%></li></a><br>
+		<a href="/projects/<%= contact.id %>">
+		<li><%= contact.name %>
+			<%= contact.address %>
+			<%= contact.phone_number %>
+			<%= contact.email_address %>
+			<a href="contacts/<%= contact.id %>/edit">Edit</a> 
+			<!-- I get the path on the prefix of the rake routes -->
+			<%=link_to('Delete', contact_path(contact), method: :delete, data: { confirm: "Are you sure you want to delete this contact?" }) %> 
+		</li><br>
+			
 		<%end%>
 </ul>
 <a href='/contacts/new'><button type="submit">Create new contact</button></a>

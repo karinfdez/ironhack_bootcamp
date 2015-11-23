@@ -1,0 +1,57 @@
+
+
+<%= form_for [@contact] do |f| %>
+  <div>
+    <%= f.label :name %>
+
+     <ul>
+      <% @contact.errors[:name].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+
+      <%= f.text_field :name %>
+  </div>
+
+ <div>
+    <%= f.label :address%>
+
+     <ul>
+      <% @contact.errors[:address].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+
+    <%= f.text_area :address %>
+  </div>
+
+   <div>
+    <%= f.label :phone_number%>
+
+     <ul>
+      <% @contact.errors[:phone_number].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+
+    <%= f.text_area :phone_number%>
+  </div>
+
+   <div>
+    <%= f.label :email_address%>
+
+     <ul>
+      <% @contact.errors[:email_address].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+
+    <%= f.text_area :email_address%>
+  </div>
+
+  <button type="submit">
+   Edit contact
+  </button>
+<% end %>
+
+

@@ -6,12 +6,14 @@
 	<%= @proj.name%>
 </h3>
 
-<ul>
-	<% @entries.each do |entr|%>
+<%= render ("form") %>
+
+<!-- <ul>
+	<%# @entries.each do |entr|%>
  		<li>
  		<%= entr.hours %> hours 	<!--hours along is a label -->
-	   	<%= entr.minutes %> minutes
-	   </li>
-	   <% end%>
+	   	<!-- <%#= entr.minutes %> minutes -->
+	   <!-- </li> -->
+	  <!--  <%# end%>
 </ul>
-<a href="/projects/<%= @proj.id%>/entries/new">add new entry</a>
+<a href="/projects/<%= @proj.id%>/entries/new">add new entry</a> -->

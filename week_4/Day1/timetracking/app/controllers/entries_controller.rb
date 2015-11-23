@@ -29,13 +29,10 @@ class EntriesController < ApplicationController
 	   else
 	   	 render 'new'  #Send me to the form again
 	   end
-
-		#show the new page
-		#show errors
 	end
 
 	private
-	#Always rails reuqire this method to avoid malicious input
+	#Always rails require this method to avoid malicious input
 	def entry_params
 		params.require(:entry).permit(:hours,:minutes,:date)
 	end

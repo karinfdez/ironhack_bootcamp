@@ -60,6 +60,20 @@ class ProjectsController < ApplicationController
 	    end
     end
 
+    def destroy
+
+    	my_proj_id=params[:id]
+    	@proj=Project.find_by(id: my_proj_id)
+
+    	if @proj==nil
+    		redirect_to("/404")
+    	else
+    		@proj.destroy
+    		redirect_to ("/projects")
+    	end
+    	
+    end
+
 	private
 
 	def project_params

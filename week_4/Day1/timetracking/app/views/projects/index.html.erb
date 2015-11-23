@@ -3,10 +3,11 @@
 		<% @projects.each do |project| %>
 			<%# if project.name=="Ironhack" %>   <!-- Only show me the projects with that name-->
 				<li><%= project.name %>
-					 <% if !(project.description.nil?)%></li>   <!--Same as saying proyect.description!=nil? -->
-					
+				<% if !(project.description.nil?)%></li>   <!--Same as saying proyect.description!=nil? -->
 					<%= project.description %>
-					<%end%>
-			<% end %>
-		<%# end%>
+				<%#end%>
+			  <% end %>
+			  <a href="projects/<%= project.id %>/edit">Edit</a> 
+			 
+		<% end %> 
 	</ul>

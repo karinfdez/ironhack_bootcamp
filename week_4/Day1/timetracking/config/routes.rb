@@ -55,14 +55,14 @@ Rails.application.routes.draw do
   #   end
 
 
-  get '/' => 'site#home'
+  # get '/' => 'site#home'
 
-  get '/contact' => 'site#contact'   #Same controller, different action
+  # get '/contact' => 'site#contact'   #Same controller, different action
 
   resources :projects do
     resources :entries
   end
-  post '/projects'
+  # post '/projects'
  
  
   # get '/projects' => "projects#index"

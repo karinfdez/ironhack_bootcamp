@@ -10,6 +10,8 @@ class Project < ActiveRecord::Base
 
    #Validates uniqueness and presence of name. with a length maximum of 30 characters
    validates :name, { uniqueness: true, presence: true,length: {maximum: 30}}  
+   validates :description, {uniqueness: true, presence: true,length: {minimum: 5}}
+  
 
    #Include alphanumeric characters and spaces:
    # validates(:name, format: { with: /^[0-9a-zA-Z ]+$/})  #Allow validation for alphanumeric and spaces only.

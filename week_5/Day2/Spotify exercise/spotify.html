@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="main.css">
+
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    	<script src="spotify.js"></script>
+	</head>
+	<body>
+		<div class="buttonInput">
+
+			<input class="js-artist-input" type="text" placeholder="Search for artist" ><br>
+			<button class="js-artist-submit searchButton">Search</button>
+		</div>
+		<ul class="js-list"></ul>
+		<ul class="js-albumList"></ul>
+
+		<!-- Bootstrap Modal -->
+		<!-- Button trigger modal -->
+	
+		<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		  Launch demo modal
+		</button> -->
+
+	<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Album List:</h4>
+        </div>
+        <div class="modal-body">
+          <p class="js-wholeAlbum"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ </body>
+</html>

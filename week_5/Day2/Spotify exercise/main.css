@@ -1,0 +1,28 @@
+
+.buttonInput{
+	position:relative;
+	margin: 20px auto;
+	text-align: center;
+
+}
+
+.searchButton{
+	margin-top: 10px;
+}
+li {
+	list-style: none;
+	display: inline-block;   
+	margin: 10px;
+}
+
+li p{
+	text-align: center;
+}
+
+body {
+ background-color: #E45051;
+}
+
+img {
+	width: 250px;
+}

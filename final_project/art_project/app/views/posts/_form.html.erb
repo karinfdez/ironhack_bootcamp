@@ -1,0 +1,28 @@
+<%=form_for @post do |form|%>
+	<p>
+		<%=form.label :title%>
+		<%=form.text_field :title%>
+	</p>
+		<!-- Print message in case title is blank -->
+	<%if @post.errors[:title].any?%>
+		<p class='error_messages'>
+			The given title <%=@post.errors[:title].to_sentence%>
+		</p>
+	<% end%>
+
+	<p>
+		<%=form.label :content%>
+		<%=form.text_area :content%>
+	</p>
+		<!-- Print message in case content is blank -->
+	<%if @post.errors[:content].any?%>
+		<p class='error_messages'>
+			The given content <%=@post.errors[:content].to_sentence%>
+		</p>
+	<% end%>
+
+	<p class='form_buttom'>
+		<%=form.submit "Submit"%>
+	</p>
+	
+<% end%>

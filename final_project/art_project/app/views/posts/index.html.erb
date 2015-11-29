@@ -1,0 +1,10 @@
+<h1>List of posts</h1>
+
+<%@list_Posts.each do |post|%>
+	<ul>
+		<li><%=post.title%>
+		<%=post.created_at%>
+		<a href='/posts/new'>Edit</a>
+		<a href='/posts/<%=post.id%>'>Delete</a></li><br>
+	</ul>
+<% end%>

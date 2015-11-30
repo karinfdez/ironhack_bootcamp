@@ -14,16 +14,36 @@ class IngredientsController < ApplicationController
 
 	def show
 		sandwich=Sandwich.find_by(id: params[:sandwich_id])
-		ingredients=sandwich.ingredients.find_by(id: params[:id])
 		if sandwich.nil?
-			error={"Sandwich not found"}
+			error={ error: "Sandwich not found"}
 			render json: error,status: 404
 		else
-			render json: ingredients
+			ingredients=sandwich.ingredients.find_by(id: params[:id])
+
+			if ingredients.nil?
+				error={ error: "Ingredient not found"}
+				render json: error, status: 404
+			else
+				render json: ingredients
+			end
 		end
 	end
 
-	def update
+	def destroy
+		sandwich=Sandwich.find_by(id: params[:sandwich_id])
+		if sandwich.nil?
+			error={error: 'Sandwich not found'}
+			render json: error, status: 404
+		else
+			ingredients=sandwich.ingredients.find_by(id: params[:id])
+			if ingredients.nil?
+				error={error: 'Ingredients not found'}
+				render json: error,status: 404
+			else
+				ingredients.destroy
+				render json: ingredients
+			end
+		end
 	end
 
 

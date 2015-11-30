@@ -29,9 +29,8 @@ class PostsController < ApplicationController
 	end
 	
 	def show
-		id=params[:id]
-		@post=Post.find_by(id: id)
-		if @post==nil
+		#find_post is a method defined private
+		if find_post==nil
 			redirect_to('/404')
 		else
 			render 'show'
@@ -40,34 +39,47 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@post=Post.find_by(id: params[:id])
-		if @post==nil
+
+		if find_post==nil
 			redirect_to('/404')
 		else
-   		  # if @post.update(post_params)
-      	# 	 redirect_to posts_path
-    	  # else
-      	# 	render 'edit'
-    	  # end
-    	respond_to do |format|
-      		if @post.update(post_params)
-        		format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        		format.json { render :show, status: :ok, location: @post }
-      		else
-        		format.html { render :edit }
-        		format.json { render json: @post.errors, status: :unprocessable_entity }
-            end
-        end
-       end	
+      		render 'edit'
+        end	
        
 	end
 
-	def delete
-		@post.destroy
+	def update
+		if find_post==nil
+			redirect_to('/404')
+		else
+			respond_to do |format|
+      			if @post.update(post_params)
+        			format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        			format.json { render :show, status: :ok, location: @post }
+      			else
+        			format.html { render :edit }
+        			format.json { render json: @post.errors, status: :unprocessable_entity }
+            	end
+            end
+         end
 
 	end
 
+	def destroy
+	
+		#find_post is defined on the private method find_post
+		find_post.destroy
+    	respond_to do |format|
+      		format.html { redirect_to posts_path, notice: 'The post was successfully destroyed.' }
+      		format.json { head :no_content }
+        end
+	end
+
 	private
+	def find_post
+	  	id=params[:id]
+		@post=Post.find_by(id: id)
+	end
 	
 	def post_params
 		params.require(:post).permit(:title, :content)

@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  #The only page the public can have access is the index page.
+  before_action :authenticate_user!,except:["index"]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events

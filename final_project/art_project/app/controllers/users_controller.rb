@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	#Nobody(except the loged user) can have access to the list of users
-	# before_action :authenticate_user!
+# before_action :authenticate_user!
 
 	 def index
 

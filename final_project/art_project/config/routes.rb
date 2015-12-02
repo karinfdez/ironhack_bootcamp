@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :events
   resources :users do 
   	resources :posts
+  # resources :admins
   end
   
 end

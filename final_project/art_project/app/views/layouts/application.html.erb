@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<!-- To send a message at log in when password or email aren't invalid -->
+<div class="notice"><%= flash[:notice] %></div>
+<div class="alert"><%= flash[:alert] %></div>
+
 <%= yield %>
 
 </body>

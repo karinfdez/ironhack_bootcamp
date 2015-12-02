@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in?%>
+  <h2>Welcome <%= current_user.first_name %><%= current_user.last_name %>!</h2>
+  <%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %>
+<% else %>
+  <h2>Welcome!. Please log in</h2> 
+  <%= link_to 'Log in',  user_session_path %>
+<% end %><br>
+
 <h1>Listing Events</h1>
 
 <table>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Image Scaffolds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @image_scaffolds.each do |image_scaffold| %>
+      <tr>
+        <td><%= image_scaffold.title %></td>
+        <td><%= image_scaffold.description %></td>
+        <td><img src='<%= image_scaffold.image_url(:thumb) %>'></td>
+        <td><%= link_to 'Show', image_scaffold %></td>
+        <td><%= link_to 'Edit', edit_image_scaffold_path(image_scaffold) %></td>
+        <td><%= link_to 'Destroy', image_scaffold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image scaffold', new_image_scaffold_path %>

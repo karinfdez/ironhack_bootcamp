@@ -1,2 +1,4 @@
 <h1>User details:</h1>
-<%%>
+<%@users.each do |user| %>
+	<% user.first_name%>
+<% end %>

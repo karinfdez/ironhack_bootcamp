@@ -4,6 +4,9 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+    <% if !@valid_email %>
+      <p>Sorry.It seems this email doesn't belong to the comunity.</p>
+    <% end %>
   </div>
 
   <div class="field">

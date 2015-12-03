@@ -10,11 +10,14 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
   	if resource.is_a?(Admin)
+  		puts "Is the resource an admin?"
+  		puts resource
+  		puts Admin
   		#redirect somewhere
-  		"/some_admin_page"
+  		"/admins/index"
   	else
   		"/events"
-  		#redirect
+  		
   	end	
   end
 
@@ -22,6 +25,7 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :first_name
       devise_parameter_sanitizer.for(:sign_up) << :last_name
+      devise_parameter_sanitizer.for(:sign_up) << :password
     end
 
 end

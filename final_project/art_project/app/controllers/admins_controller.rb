@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-	# before_action :authenticate_user!
+	before_action :authenticate_user!
 	def index
 		@users=User.all
 		@events=Event.all
@@ -36,5 +36,5 @@ class AdminsController < ApplicationController
 	      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
 	      format.json { head :no_content }
 	    end
- end
+    end
 end

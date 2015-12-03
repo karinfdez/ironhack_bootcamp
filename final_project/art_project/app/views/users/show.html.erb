@@ -1,4 +1,12 @@
-<h1>User details:</h1>
-<%@users.each do |user| %>
-	<% user.first_name%>
-<% end %>
+
+	<h1><%= @user.first_name%><spam><%= @user.last_name%></spam></h1>
+
+	<p>Contact email: <%=@user.email%></p>
+	<p>Description of artist: FALTA(Migration doesn't work)</p>
+
+	<% if user_signed_in?%>
+		
+		<a href='/users/<%=@user.id%>/posts/new'>Create new post</a>
+		
+	<% end %>
+	

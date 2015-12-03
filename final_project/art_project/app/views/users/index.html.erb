@@ -12,7 +12,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><a href= ><%= user.first_name%><%=" " %><%= user.last_name%></a></td>
+        <td><a href=' /users/<%=user.id %>'><%= user.first_name%><%=' '%><%= user.last_name%></a></td>
         <!-- <td><%= user.email%></td> -->
         
         <%# if user_signed_in? %>
@@ -24,7 +24,7 @@
   </tbody>
 </table>
 
-<%= link_to 'New',  new_user_registration_path%>
+<%#= link_to 'New',  new_user_registration_path%>
 <%= link_to 'Back', events_path%>
 
 <br>

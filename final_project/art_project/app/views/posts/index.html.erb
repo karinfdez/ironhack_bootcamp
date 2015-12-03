@@ -20,9 +20,9 @@
         <td><img src='<%= post.image_url(:thumb) %>'></td>
         <td><%= post.author %></td>
         <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_post_path(@user, post)%></td>
+        <td><%= link_to 'Edit', edit_user_post_path(@user, post) %></td>
+        <td><%= link_to 'Destroy', [@user, post], confirm: 'Are you sure?', method: :delete%></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_user_post_path(@user)%>

@@ -14,11 +14,18 @@
       <tr>
         <td><a href=' /users/<%=user.id %>'><%= user.first_name%><%=' '%><%= user.last_name%></a></td>
         <!-- <td><%= user.email%></td> -->
-        
-        <%# if user_signed_in? %>
-          <!-- <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure you want to remove user?' } %> -->
-        <%# end%>
-       <!--  </td> -->
+        <!-- Only for user authorization -->
+        <% if can? :create, user %>
+          <%= link_to 'New User', new_user_path %>
+        <% end %>
+        <% if can? :update, user %>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% end %>
+        <%if can? :destroy, user %>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure you want to remove user?' } %>
+          </td>
+         <% end%>
+
       </tr>
     <% end %>
   </tbody>

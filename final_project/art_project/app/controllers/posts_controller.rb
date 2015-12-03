@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   
+  #Posts is nested to his parent: the current user.
+  # load_and_authorize_resource :through => :current_user
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!,except: [:index]
+  before_action :authenticate_user!,except: [:index,:show]
 
   #This step makes sure every post belongs to an specific user.
   #Loading the parent
@@ -12,7 +14,8 @@ class PostsController < ApplicationController
   #Only show posts for the specific user
   def index
     # @post=set_post
-     @posts = current_user.posts.all
+     # @posts = current_user.posts.all
+     @posts=set_post
   end
 
   # GET /posts/1
@@ -24,6 +27,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    #Helper method load has the before_action method where I don't have
+    #to define new post
     @post = current_user.posts.new
   end
 
@@ -81,7 +86,11 @@ class PostsController < ApplicationController
     end
 
     def find_user
-      @user = current_user.find(params[:user_id])
+      if @user.nil?
+        redirect_to '/404'
+      else
+        @user = current_user
+      end
    end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -4,12 +4,13 @@ class EventsController < ApplicationController
   
   #Throw an exception if unauthorized user is trying to access this pages.
   #Like an log in user but when not admin preferences.
+  
    load_and_authorize_resource
   
   #Authenticate user when trying to edit, create or modify events(if it's not log in).
   before_action :authenticate_user!,except: :index 
 
-  #Find an specific event for this actions(apply method set_event)
+    #Apply this method for this actions.
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events

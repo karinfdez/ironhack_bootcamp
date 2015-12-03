@@ -37,12 +37,15 @@
         <td><%= event.description %></td>
         <td><%= event.organizer_name %></td>
         <td><%= event.event_type %></td>
-        <!-- Only for admin controller -->
-        <%# if user_signed_in? %>
-          <!-- <td><%#= link_to 'Show', event %></td>
-          <td><%#= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%#= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %> -->
-        <%#end%>
+        <!-- The show link can be see for everybody  -->
+          <td><%= link_to 'Show', event %></td>
+        <!-- Only admin can modify events -->
+        <% if can? :update, event %>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <% end %>
+        <%if can? :destroy, event %>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end%>
         </td>
       </tr>
     <% end %>
@@ -52,7 +55,7 @@
 <br>
 
  <%# if user_signed_in? %>
-  <%#= link_to 'New Event', new_event_path %>
+  <%= link_to 'New Event', new_event_path %>
   <%#= link_to 'Modify users', users_path %>
  <%# end %>
  <%= link_to 'List of artists', users_path %>

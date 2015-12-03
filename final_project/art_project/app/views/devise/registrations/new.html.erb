@@ -29,8 +29,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <p>Roles:</p>
+  <input id="accept" name="accept_admin" type="checkbox" value="1" />Admin
+  <input id="accept" name="accept_user" type="checkbox" value="1" />Artist
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    
+    <br><%= f.submit "Sign up" %>
   </div>
 <% end %>
 

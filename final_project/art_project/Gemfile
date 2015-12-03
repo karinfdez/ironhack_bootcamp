@@ -32,6 +32,9 @@ gem 'carrierwave'
 #Gem to modify images
 gem "mini_magick",'~>4.3.6'
 
+#To authenticate models(what can be used by users and admins)
+gem 'cancan'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

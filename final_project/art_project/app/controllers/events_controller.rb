@@ -1,7 +1,15 @@
 class EventsController < ApplicationController
 
   #The page the public can have access without log in is the index page.
+  
+  #Throw an exception if unauthorized user is trying to access this pages.
+  #Like an log in user but when not admin preferences.
+   load_and_authorize_resource
+  
+  #Authenticate user when trying to edit, create or modify events(if it's not log in).
   before_action :authenticate_user!,except: :index 
+
+  #Find an specific event for this actions(apply method set_event)
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -22,6 +30,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+
   end
 
   # POST /events
@@ -67,7 +76,11 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      if @event.nil?
+        redirect_to '/404'
+      else
+         @event = Event.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

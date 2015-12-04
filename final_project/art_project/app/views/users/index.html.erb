@@ -1,5 +1,5 @@
 
-<h1>List of users:</h1>
+<h1>List of artists:</h1>
 
 <table>
   <thead>
@@ -13,7 +13,7 @@
     <% @users.each do |user| %>
       <tr>
         
-        <td><a href=' /users/<%=user.id %>'><%= user.first_name%><%=' '%><%= user.last_name%><%=' '%><%= user.admin?%></a></td>
+        <td><a href=' /users/<%=user.id %>'><%= user.first_name+user.last_name%></a></td>
         <!-- <td><%= user.email%></td> -->
         <!-- Only for user authorization -->
         <% if current_user.present? and current_user.admin? %>

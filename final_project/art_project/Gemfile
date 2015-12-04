@@ -33,7 +33,7 @@ gem 'carrierwave'
 gem "mini_magick",'~>4.3.6'
 
 #To authenticate models(what can be used by users and admins)
-gem 'cancan'
+# gem 'cancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -47,6 +47,9 @@ gem 'cancan'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'annotate'
+  gem 'awesome_print'
+  gem 'pry'
 end
 
 group :development do

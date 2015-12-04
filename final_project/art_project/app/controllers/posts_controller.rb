@@ -2,20 +2,26 @@ class PostsController < ApplicationController
   
   #Posts is nested to his parent: the current user.
   # load_and_authorize_resource :through => :current_user
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!,except: [:index,:show]
 
   #This step makes sure every post belongs to an specific user.
   #Loading the parent
-  before_action(:find_user)
+  # before_action(:find_user)
 
   # GET /posts
   # GET /posts.json
   #Only show posts for the specific user
   def index
-    # @post=set_post
-     # @posts = current_user.posts.all
-     @posts=set_post
+
+    if current_user.is_admin?
+      # do this
+    else
+      # do that
+    end
+
+     @posts = current_user.posts.all
+    
   end
 
   # GET /posts/1
@@ -45,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to ([@user,@post]), notice: 'Post was successfully created.' }
+        format.html { redirect_to ('/'), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -80,18 +86,19 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      user=find_user
-      @post = @user.posts.all
-    end
+    # def set_post
+    #   user=find_user
+    #   @post = user.posts.all
+    # end
 
-    def find_user
-      if @user.nil?
-        redirect_to '/404'
-      else
-        @user = current_user
-      end
-   end
+   #  def find_user
+   #    if @user.nil?
+   #      redirect_to '/404'
+   #    else
+   #      @user=User.find_by(id: params[:id])
+   #      # @user = current_user
+   #    end
+   # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params

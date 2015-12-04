@@ -3,12 +3,14 @@ class UsersController < ApplicationController
  
 #Throw an exception if unauthorized user is trying to access this pages.
   #Like an log in user but when not admin preferences.
- load_and_authorize_resource
+ # load_and_authorize_resource
   
   #Authenticate user when trying to edit, create or modify users(if it's not log in).
   before_action :authenticate_user!,except: :index 
    #Apply this method for this actions.
   before_action :set_user, only: [:show, :edit, :destroy]
+
+  before_filter :is_admin_user, only: [:index]
 
 	def index
 		@users=User.all

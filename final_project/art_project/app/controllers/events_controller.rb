@@ -4,8 +4,9 @@ class EventsController < ApplicationController
   
   #Throw an exception if unauthorized user is trying to access this pages.
   #Like an log in user but when not admin preferences.
-  
-   load_and_authorize_resource
+
+  #it's from cancan
+   # load_and_authorize_resource
   
   #Authenticate user when trying to edit, create or modify events(if it's not log in).
   before_action :authenticate_user!,except: :index 
@@ -15,7 +16,9 @@ class EventsController < ApplicationController
 
   # GET /events
   # GET /events.json
+  
   def index
+  
     @events = Event.all
   end
 
@@ -77,11 +80,12 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      if @event.nil?
-        redirect_to '/404'
-      else
+      # if @event.nil?
+      #   redirect_to '/404'
+      # else
          @event = Event.find(params[:id])
-      end
+
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

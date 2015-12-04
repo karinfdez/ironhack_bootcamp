@@ -40,10 +40,8 @@
         <!-- The show link can be see for everybody  -->
           <td><%= link_to 'Show', event %></td>
         <!-- Only admin can modify, destroy and create events. -->
-        <% if can? :update, event %>
+         <% if current_user.present? and current_user.admin? %>
           <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <% end %>
-        <%if can? :destroy, event %>
           <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end%>
         </td>
@@ -54,7 +52,7 @@
 
 <br>
 
- <% if can? :create, @events %>
+  <% if current_user.present? and current_user.admin? %>
    <%= link_to 'New Event', new_event_path %>
   <% end %>
   <%#= link_to 'Modify users', users_path %>

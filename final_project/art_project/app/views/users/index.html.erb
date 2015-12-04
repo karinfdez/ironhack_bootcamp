@@ -21,6 +21,7 @@
          <% if current_user.present? and current_user.admin? %>
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure you want to remove user?' } %></td>
         <% end%>
+        <td><%= link_to "User's post", posts_path%></td>
       </tr>
     <% end %>
   </tbody>

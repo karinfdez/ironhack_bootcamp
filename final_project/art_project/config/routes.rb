@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events
 
-  resources :posts
-  resources :users do 
+  resources :users do
+  	resources :posts
   end
   # #In order to separate admins page of user's page
   #  get '/admins/index'=>'admins#index'

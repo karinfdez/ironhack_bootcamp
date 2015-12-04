@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
   #This is call on every model I will need to upload an image
   mount_uploader :image,ImageUploader
   #Validations
@@ -33,14 +34,17 @@ class User < ActiveRecord::Base
 	validates :first_name, presence: true, length: { in: 2..50 }
 	validates :password, length: { maximum: 50 }
   
+  # scope :all_except, ->(user) { where(["admin: NOT IN (?)"])}
 
+  #Defining method 'except' to be use to show users except admin.
+  # scope :all_except, ->(user) { where(["admin NOT IN (?)"])}
 
   # def role?(role)
   #   roles.include? role.to_s
   # end
 
 
-  # has_many :posts
+  has_many :posts
 
   #I would like to add this helper method when public trying to log in.
 	#validates_exclusion_of :email, in: %w( admin superuser ), message: "You don't belong here"

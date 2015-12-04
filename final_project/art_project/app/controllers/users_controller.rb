@@ -5,21 +5,21 @@ class UsersController < ApplicationController
   #Like an log in user but when not admin preferences.
  # load_and_authorize_resource
   
+ 
   #Authenticate user when trying to edit, create or modify users(if it's not log in).
   before_action :authenticate_user!,except: :index 
    #Apply this method for this actions.
-  before_action :set_user, only: [:show, :edit, :destroy]
+  before_action :load_user, only: [:show, :edit, :destroy]
 
-  before_filter :is_admin_user, only: [:index]
+  # before_filter :is_admin_user, only: [:index]
+  # before_filter :load_user
 
 	def index
-		@users=User.all
-		if @user.nil?
-	 		"There is not user on the database"
-	 	else
-	 		render 'index'
-	 	end
-
+		
+		# @admins=User.where(admin: true)
+	    #Only show users that aren't admin(only the community are shown)
+	    @users = User.where(admin: false)
+	  
 	end
 
 	def new
@@ -41,27 +41,25 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user=set_user
-		# @user=User.find_by(id: params[:id])
+
 	end
 
 	 def destroy
 	 	#user=User.find_by(id: params[:id])
 	 	#user.destroy
-	 	 @user.destroy
+	 	@user.destroy
 	    respond_to do |format|
 	      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
 	      format.json { head :no_content }
 	    end
 	end
 
-	private
-	def set_user
-	    if @user.nil?
-        	redirect_to '/404'
-      	else
-            @user = User.find(params[:id])
-        end
+	# private
+	def load_user
+            @user = User.find_by(id: params[:id])
+            if @user.nil?
+        		redirect_to '/404'
+            end
 	end
 end
 

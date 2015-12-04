@@ -12,7 +12,8 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><a href=' /users/<%=user.id %>'><%= user.first_name%><%=' '%><%= user.last_name%></a></td>
+        
+        <td><a href=' /users/<%=user.id %>'><%= user.first_name%><%=' '%><%= user.last_name%><%=' '%><%= user.admin?%></a></td>
         <!-- <td><%= user.email%></td> -->
         <!-- Only for user authorization -->
         <% if current_user.present? and current_user.admin? %>
@@ -21,13 +22,13 @@
          <% if current_user.present? and current_user.admin? %>
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure you want to remove user?' } %></td>
         <% end%>
-        <td><%= link_to "User's post", posts_path%></td>
+        <!-- <td><%#= link_to "User's post", posts_path%></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<% if current_user.present? and current_user.admin? %>
+<% if current_user.present? && current_user.admin? %>
   <%= link_to 'New User', new_user_path %> |
 <% end %>
 <%= link_to 'Back', events_path%>

@@ -4,7 +4,7 @@
 	<p>Contact email: <%=@user.email%></p>
 	<p>Description of artist: FALTA(Migration doesn't work)</p>
 
-	<% if user_signed_in?%>
+	<% if current_user.present? && current_user.admin?%>
 		
 		<a href='/users/<%=@user.id%>/posts/new'>Create new post</a>
 		

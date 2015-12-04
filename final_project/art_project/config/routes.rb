@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :users do 
   end
-  #In order to separate admins page of user's page
-   get '/admins/index'=>'admins#index'
+  # #In order to separate admins page of user's page
+  #  get '/admins/index'=>'admins#index'
  
   
 end

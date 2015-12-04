@@ -26,11 +26,14 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  #This is call on every model I will need to upload an image
+  mount_uploader :image,ImageUploader
   #Validations
   #Minimum 2 characters per name. Maximum 50 characters.
 	validates :first_name, presence: true, length: { in: 2..50 }
 	validates :password, length: { maximum: 50 }
+  
+
 
   # def role?(role)
   #   roles.include? role.to_s

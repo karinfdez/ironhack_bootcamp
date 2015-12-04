@@ -14,7 +14,7 @@
 
 class Post < ActiveRecord::Base
 
-	mount_uploader :image,ImagePostUploader
+	mount_uploader :image,ImageUploader
 	# belongs_to :user
 
 	validates :title,:author,:content, presence: true

@@ -42,6 +42,7 @@
         <!-- Only admin can modify, destroy and create events. -->
          <% if current_user.present? and current_user.admin? %>
           <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <%# end %>
           <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end%>
         </td>
@@ -52,7 +53,7 @@
 
 <br>
 
-  <% if current_user.present? and current_user.admin? %>
+ <% if current_user.present? and current_user.admin? %>
    <%= link_to 'New Event', new_event_path %>
   <% end %>
   <%#= link_to 'Modify users', users_path %>

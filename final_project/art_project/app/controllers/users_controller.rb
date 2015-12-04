@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   
  
   #Authenticate user when trying to edit, create or modify users(if it's not log in).
-  before_action :authenticate_user!,except: :index 
+  #Unauthorized users only can see artists and theirs blogs.
+  before_action :authenticate_user!,except: [:index,:show]
    #Apply this method for this actions.
   before_action :load_user, only: [:show, :edit, :destroy]
 
@@ -54,13 +55,18 @@ class UsersController < ApplicationController
 	    end
 	end
 
-	# private
+	private
 	def load_user
             @user = User.find_by(id: params[:id])
             if @user.nil?
         		redirect_to '/404'
             end
 	end
+
+	def user_params
+      params.require(:user).permit(:first_name, :last_name, :email,:users_description,:encrypted_password)
+
+    end
 end
 
 

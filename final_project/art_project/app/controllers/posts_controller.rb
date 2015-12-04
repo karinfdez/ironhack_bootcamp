@@ -96,20 +96,7 @@ class PostsController < ApplicationController
   def load_user
     @user=User.find_by(id: params[:user_id])
   end 
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_post
-    #   user=find_user
-    #   @post = user.posts.all
-    # end
-
-   #  def find_user
-   #    if @user.nil?
-   #      redirect_to '/404'
-   #    else
-   #      @user=User.find_by(id: params[:id])
-   #      # @user = current_user
-   #    end
-   # end
+    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params

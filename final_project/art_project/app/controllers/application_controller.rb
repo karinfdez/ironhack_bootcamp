@@ -5,24 +5,24 @@ class ApplicationController < ActionController::Base
  
   protect_from_forgery with: :exception
 
-
+ 
  #configuration of parameter first_name and last_name
  
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-   def after_sign_in_path_for(resource)
+   # def after_sign_in_path_for(resource)
   	
-    if resource.is_a?(Admin)
-  		# puts "Is the resource an admin?"
-  		# puts resource
-  		# puts Admin
-  		#redirect somewhere
-  		"/admins/index"
-  	else
-  		"/events"
+   #  if resource.is_a?(Admin)
+  	# 	# puts "Is the resource an admin?"
+  	# 	# puts resource
+  	# 	# puts Admin
+  	# 	#redirect somewhere
+  	# 	"/admins/index"
+  	# else
+  	# 	"/events"
   		
-  	end	
-   end
+  	# end	
+   # end
 
   def is_admin_user
     if current_user.present? and current_user.admin? == false

@@ -9,13 +9,18 @@
 <body>
 <header>
 	<%= link_to 'Home',href='/'%> |
+	<%= link_to 'About',href='/'%> |
 	<%= link_to 'Events', events_path %> |
 	<%= link_to 'Artists', users_path %> |
 	<%= link_to 'Posts', hred='/' %> |
 	<%= link_to 'Gallery', events_path %><br>
 
-	<% if user_signed_in?%>
+
+	<% if user_signed_in? && !current_user.admin?%>
   		<strong> Welcome<%= current_user.first_name%> <%=current_user.last_name%></strong>
+  		<%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %> 
+	 <%elsif current_user.present? && current_user.admin?%>
+		<strong> Welcome Administrator!</strong>
   		<%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %> 
 	<% else %>
   		<strong>Welcome!</strong> 

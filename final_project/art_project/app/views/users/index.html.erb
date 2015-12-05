@@ -13,7 +13,7 @@
     <% @users.each do |user| %>
       <tr>
         
-        <td><a href=' /users/<%=user.id %>'><%= user.first_name+user.last_name%></a></td>
+        <td><a href=' /users/<%=user.id %>'><%= user.first_name+' '+user.last_name%></a></td>
         <!-- <td><%= user.email%></td> -->
         <!-- Only for user authorization -->
         <% if current_user.present? and current_user.admin? %>

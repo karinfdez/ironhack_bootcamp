@@ -9,7 +9,7 @@ class EventsController < ApplicationController
    # load_and_authorize_resource
   
   #Authenticate user when trying to edit, create or modify events(if it's not log in).
-  before_action :authenticate_user!,except: :index 
+  before_action :authenticate_user!,except: [:index,:show]
 
     #Apply this method for this actions.
   before_action :set_event, only: [:show, :edit, :update, :destroy]

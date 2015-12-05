@@ -24,11 +24,10 @@
 	<h3>Comments:</h3>
 	<% @post.comments.each do |comment| %>
    
-  <strong>created on:</strong><%= comment.created_at%><br>
+  <strong>comment added:</strong><%= time_ago_in_words(comment.created_at) %><spam> ago</spam><br>
   
   <strong>Commenter:</strong><spam><%= comment.commenter %><spam><br>
-   <strong>Text:</strong><%= comment.body %><br>
- 
+   <strong>Text:</strong><%= comment.body %><br><br>
   <% end%>
 <!--The form_for call here uses an array -->
 	

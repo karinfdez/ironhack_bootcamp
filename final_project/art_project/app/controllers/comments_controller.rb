@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.create(comment_params)
-    redirect_to post_comments(@post)
+    redirect_to 'users/@user.id/posts/@post_user.id'
+    # post_comments(@post)
   end
  
   private

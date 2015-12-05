@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
-  
-  root 'events#index'
+  get "/pages/:page" => "pages#show"
+  # Loaded as my home page
+  root "pages#show", page: "home"
+  # root 'events#index'
   devise_for :admins
   devise_for :users
   resources :events
@@ -13,7 +15,5 @@ Rails.application.routes.draw do
   resources :post do
   	resources :comments
   end
-
-   get "/pages/:page" => "pages#show"
 end
 

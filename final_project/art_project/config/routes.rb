@@ -9,11 +9,16 @@ Rails.application.routes.draw do
   resources :events
 
   resources :users do
-  	resources :posts 
-  end
+  	resources :posts
+  end 
 
-  resources :post do
-  	resources :comments
-  end
+  resources :post do    
+    resources :comments
+    end
+
+
+  # resources :post do
+  	
+  # end
 end
 

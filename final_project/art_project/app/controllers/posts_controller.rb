@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     #   # do that
     # end
     #@user was load on before_filter on top.
+    
      @posts = @user.posts.all
     
   end
@@ -31,7 +32,7 @@ class PostsController < ApplicationController
   def show
     
      @post = @user.posts.find_by(id: params[:id])
-     
+
   end
 
   # GET /posts/new

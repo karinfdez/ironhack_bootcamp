@@ -24,12 +24,12 @@ class ApplicationController < ActionController::Base
   	# end	
    # end
 
-  # def is_admin_user
-  #   if current_user.present? && current_user.admin? == false
-  #     redirect_to '/'
-  #     return
-  #   end
-  # end
+  def is_admin_user
+    if current_user.present? && current_user.admin? == false
+      redirect_to '/'
+      return
+    end
+  end
 
   protected
     def configure_permitted_parameters

@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   mount_uploader :image,ImageUploader
   #Validations
   #Minimum 2 characters per name. Maximum 50 characters.
-	validates :first_name, presence: true, length: { in: 2..50 }
+	validates :first_name,:last_name,presence: true, length: { in: 2..50 }
 	validates :password, length: { maximum: 50 }
   
   

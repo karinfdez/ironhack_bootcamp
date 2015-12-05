@@ -19,16 +19,6 @@ class Post < ActiveRecord::Base
 
 	validates :title,:content, presence: true
 	validates :title, length: { in: 2..80 },uniqueness: true
-
-	
-
-	# def user_can_edit?(user_id)
- #    # if the post's owner is the same as the user id passed..
- #    if self.user_id == user_id
- #      true
- #    else
- #      false
- #    end
- #  end
+	has_many :comments
 
 end

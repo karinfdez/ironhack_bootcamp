@@ -31,6 +31,7 @@ class PostsController < ApplicationController
   def show
     
      @post = @user.posts.find_by(id: params[:id])
+     
   end
 
   # GET /posts/new

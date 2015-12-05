@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :events
 
   resources :users do
-  	resources :posts
+  	resources :posts 
   end
-  # #In order to separate admins page of user's page
-  #  get '/admins/index'=>'admins#index'
- 
-  
+
+  resources :post do
+  	resources :comments
+  end
 end

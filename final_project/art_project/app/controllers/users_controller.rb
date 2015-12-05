@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
 	    respond_to do |format|
 	      if @user.save
-	        format.html { redirect_to @user, notice: 'User was successfully created.' }
+	        format.html { redirect_to '/users', notice: 'User was successfully created.' }
 	        format.json { render :show, status: :created, location: @user }
 	      else
 	        format.html { render :new }
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-      params.require(:user).permit(:first_name, :last_name, :email,:users_description,:encrypted_password)
+      params.require(:user).permit(:first_name, :last_name, :email,:users_description,:password, :password_confirmation)
 
     end
 end

@@ -84,8 +84,6 @@ class EventsController < ApplicationController
       #   redirect_to '/404'
       # else
          @event = Event.find(params[:id])
-
-      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

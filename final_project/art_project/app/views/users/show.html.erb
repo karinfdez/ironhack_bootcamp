@@ -7,8 +7,7 @@
 	<%if current_user.present? && current_user.id==@user.id && !current_user.admin%>
 		<a href='/users/<%=@user.id%>/posts/new'>Create new post</a>
     <% end %>
-		<%#= link_to 'Create post', user_posts_path %> 
-		<%#= link_to 'List of posts', new_user_post_path %>
+		
 	
 	<a href='/users/<%=@user.id%>/posts'>List of posts</a>|
 	<a href='/users'>Back</a>

@@ -19,7 +19,9 @@ class EventsController < ApplicationController
   
   def index
   
-    @events = Event.all
+    # @events = Event.where('start >= ?', Date.today).order(:start)
+
+     @events = Event.all
   end
 
   # GET /events/1

@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ArtProject</title>
+  <title>Artproject</title>
+  <!-- <title>ArtProject</title> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-	<%= link_to 'Home',href='/'%> |
-	<%= link_to 'About',href='/pages/about'%> |
-	<%= link_to 'Events', events_path %> |
-	<%= link_to 'Artists', users_path %> |
-	<%= link_to 'Posts', hred='/' %> |
-	<%= link_to 'Gallery', events_path %><br>
-
-
+<header class="navbar navbar-fixed-top navbar-inverse">
+ <div class="container">
+ 		<nav>
+      <ul class="nav navbar-nav navbar-right">
+				<li><%= link_to 'Home',href='/'%></li>
+				<li><%= link_to 'About',href='/pages/about'%></li> 
+				<li><%= link_to 'Events', events_path %></li> 
+				<li><%= link_to 'Artists', users_path %></li> 
+				<li><%= link_to 'Posts', hred='/' %></li> 
+				<li><%= link_to 'Gallery', events_path %></li>
+			</ul>
+		</nav>
+	</div>
 	<% if user_signed_in? && !current_user.admin?%>
   		<strong> Welcome <%= current_user.first_name+ ' ' +current_user.last_name%></strong>
   		<%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %> 
@@ -26,8 +31,7 @@
   		<strong>Welcome!</strong> 
   		<%= link_to 'Log in',  user_session_path %>
 	<% end %><br>
-
-
+ </div>	
 </header>
 <!-- <a href='/'>Home</a> | -->
 <!-- To send alerts when log in or log out sucessful -->
@@ -36,6 +40,10 @@
 <div class="alert"><%#= flash[:alert] %></div> -->
 
 <%= yield %>
-
+<footer>
+	<spam>2015 ArtProject</spam>
+	<spam><i>Twitter logo</i></spam>
+	<spam><i>Facebook logo</i></spam>
+</footer>
 </body>
 </html>

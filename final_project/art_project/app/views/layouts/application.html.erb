@@ -30,20 +30,22 @@
 	<% else %>
   		<strong>Welcome!</strong> 
   		<%= link_to 'Log in',  user_session_path %>
-	<% end %><br>
- </div>	
+	<% end %>
 </header>
 <!-- <a href='/'>Home</a> | -->
 <!-- To send alerts when log in or log out sucessful -->
 <!-- Alert when user or password aren't on database -->
 <!-- <div class="notice"><%#= flash[:notice] %></div>
 <div class="alert"><%#= flash[:alert] %></div> -->
+<div id='content'>
+	<%= yield %>
 
-<%= yield %>
 <footer>
-	<spam>2015 ArtProject</spam>
-	<spam><i>Twitter logo</i></spam>
-	<spam><i>Facebook logo</i></spam>
+	<div class='vertical-center'>
+		<spam>2015 ArtProject</spam>
+		<spam><i>Twitter logo</i></spam>
+		<spam><i>Facebook logo</i></spam>
+	</div>
 </footer>
 </body>
 </html>

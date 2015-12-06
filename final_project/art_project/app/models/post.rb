@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 
 	validates :title,:content, presence: true
-	validates :title, length: { in: 2..80 },uniqueness: true
+	validates :title, length: { in: 2..80 }
 	has_many :comments
 
 end

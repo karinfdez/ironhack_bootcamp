@@ -32,4 +32,9 @@ class Event < ActiveRecord::Base
 			errors.add(:ends_date, "can't have a past date") 
 		end
 	end
+
+	def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("title like ?", "%#{query}%") 
+  end
 end

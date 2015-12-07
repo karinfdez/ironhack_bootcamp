@@ -21,7 +21,21 @@ class EventsController < ApplicationController
   
     # @events = Event.where('start >= ?', Date.today).order(:start)
 
-     @events = Event.all
+     # @events = Event.all
+
+     if params[:search_event].present?
+      @events = Event.search(params[:search_event]).order("created_at DESC")
+    else
+      #If the searcher is empty, the show list of all events(order by last created)
+      @events= Event.order("created_at DESC")
+    end
+
+
+    if params[:search_location].present?
+      location_search = "%#{params[:search_location]}%"
+      @events= Event.where("location LIKE ?", location_search)
+      # @events = @events.where(location: event)
+    end
   end
 
   # GET /events/1

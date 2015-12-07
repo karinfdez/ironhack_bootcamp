@@ -1,0 +1,9 @@
+<%#if @posts.nil?%>
+	<!-- <p>Sorry, there are no posts at this moment.</p> -->
+<%#else %>
+	<%@posts.each do |post|%>
+		<ul>
+			<li><%=post.title%></li>
+		</ul>
+	<% end %>
+<%#end%>

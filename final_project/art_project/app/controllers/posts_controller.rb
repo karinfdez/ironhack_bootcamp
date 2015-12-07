@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   #Adding a private controller method to load the parent object(:user)
   before_filter(:load_user)
 
-  before_action :authenticate_user!,except: [:index,:show]
+  before_action :authenticate_user!,except: [:index,:show,:index_all]
 
   # GET /posts
   # GET /posts.json
@@ -81,6 +81,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def index_all
+
+     @posts = Post.order("title ASC").all
+  end
+    
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
@@ -99,7 +104,8 @@ class PostsController < ApplicationController
   def load_user
     @user=User.find_by(id: params[:user_id])
   end 
-    
+
+  
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params

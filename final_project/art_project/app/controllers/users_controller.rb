@@ -72,10 +72,13 @@ class UsersController < ApplicationController
 
 	private
 	def load_user
-            @user = User.find_by(id: params[:id])
-          #   if @user.nil?
-        		# redirect_to '/404'
-          #   end
+        
+        @user = User.find_by(id: params[:id]) or redirect_message
+    end
+
+    def redirect_message
+      redirect_to '/404'
+
 	end
 
 	def user_params

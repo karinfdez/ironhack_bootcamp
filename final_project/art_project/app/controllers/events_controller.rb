@@ -81,11 +81,14 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+     
     def set_event
-      # if @event.nil?
-      #   redirect_to '/404'
-      # else
-         @event = Event.find(params[:id])
+      
+      @event = Event.find_by(id: params[:id]) or redirect_message
+    end
+
+    def redirect_message
+      redirect_to '/404'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

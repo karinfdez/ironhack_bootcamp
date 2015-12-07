@@ -21,7 +21,6 @@ class PostsController < ApplicationController
     else
       @posts = @user.posts
     end
-
     
   end
 
@@ -29,8 +28,12 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     
-     @post = Post.find_by(id: params[:id])
+     @post = Post.find_by(id: params[:id]) or redirect_message
 
+  end
+
+  def redirect_message
+    redirect_to '/404'
   end
 
   # GET /posts/new

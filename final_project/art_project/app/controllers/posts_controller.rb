@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   # GET /posts.json
   #Only show posts for the specific user
   def index
-    
     if @user.nil?
       @posts = Post.all
     else
@@ -68,7 +67,6 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-
     @post = @user.posts.find(params[:id])
     respond_to do |format|
       if @post.update(post_params)
@@ -85,11 +83,20 @@ class PostsController < ApplicationController
      # @user=User.find_by(id: params[:user_id])
      # @posts = Post.search(params[:search])
      # @posts = Post.order("title ASC").all
-      if params[:search]
-      @posts = Post.search(params[:search]).order("created_at DESC")
+    if params[:search_title].present?
+      @posts_title = Post.search(params[:search_title]).order("created_at DESC")
     else
-      @posts = Post.order("created_at DESC")
+      @posts_title= Post.order("created_at DESC")
     end
+
+
+    if params[:search].present?
+      author_search = "%#{params[:search]}%"
+      users = User.where("first_name LIKE ? OR last_name like ?", author_search, author_search)
+      @posts_title = @posts_title.where(user_id: users.ids)
+
+    end
+     
   end
     
   # DELETE /posts/1

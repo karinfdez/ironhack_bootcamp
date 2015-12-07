@@ -82,8 +82,14 @@ class PostsController < ApplicationController
   end
 
   def index_all
-
-     @posts = Post.order("title ASC").all
+     # @user=User.find_by(id: params[:user_id])
+     # @posts = Post.search(params[:search])
+     # @posts = Post.order("title ASC").all
+      if params[:search]
+      @posts = Post.search(params[:search]).order("created_at DESC")
+    else
+      @posts = Post.order("created_at DESC")
+    end
   end
     
   # DELETE /posts/1

@@ -1,9 +1,22 @@
 <%#if @posts.nil?%>
 	<!-- <p>Sorry, there are no posts at this moment.</p> -->
 <%#else %>
-	<%@posts.each do |post|%>
-		<ul>
-			<li><%=post.title%></li>
-		</ul>
-	<% end %>
-<%#end%>
+<p id="notice"><%= notice %></p>
+
+<%= form_tag '/posts', :method => 'get',class: "navbar-form" do %>
+	<div class="input-append">
+    <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Posts" %>
+    <button class="btn" type="submit"><i class="icon-search">Search</i></button>
+  </div>
+<% end %>
+
+<%counter=1%>
+<% @posts.each do |post| %>
+  <div class="post">
+    <h4 class="post-title"><%=counter%>.<%= link_to post.title, post %></h4>
+    <h6 class="post-author">Author:<%= post.author %></h6>
+    <%counter+=1%>
+  </div>
+<% end %>
+
+

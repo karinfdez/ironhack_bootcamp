@@ -6,6 +6,9 @@
 body {
   padding-top: 60px;
 }
+#container{
+  height:100%;
+}
 
 /* typography */
 
@@ -34,7 +37,7 @@ p {
 }
 
 /* header */
-
+// When the logo is included on page
 #logo {
   float: left;
   margin-right: 10px;
@@ -73,7 +76,7 @@ footer {
 	background: #72CEC7;
 	width:100%;
 	height:70px;
-	position:absolute;
+	// position:absolute;
 	bottom:0;
 	text-align: center;
 

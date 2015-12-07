@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 	validates :first_name,:last_name,presence: true, length: { in: 2..50 }
 	validates :password, length: { maximum: 50 }
   
-  
+  has_many :comments
   has_many :posts
 
 end

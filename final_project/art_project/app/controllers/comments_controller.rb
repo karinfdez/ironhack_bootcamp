@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.create(comment_params)
     #this is the page where are all the comments of a post.
-    redirect_to post_comments(@post)
+    redirect_to post_path(@post)
   end
  
   private

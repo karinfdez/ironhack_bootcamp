@@ -15,10 +15,12 @@
 class Post < ActiveRecord::Base
 
 	mount_uploader :image, ImageUploader
+	
 	belongs_to :user
+	has_many :comments
 
 	validates :title,:content, presence: true
 	validates :title, length: { in: 2..80 }
-	has_many :comments
+	
 
 end

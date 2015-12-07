@@ -15,15 +15,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   #Only show posts for the specific user
   def index
-    # @user=User.find_by(id: params[:user_id])
-    # if current_user.is_admin?
-    #   # do this
-    # else
-    #   # do that
-    # end
-    #@user was load on before_filter on top.
     
-     @posts = @user.posts.all
+    if @user.nil?
+      @posts = Post.all
+    else
+      @posts = @user.posts
+    end
+
     
   end
 
@@ -31,7 +29,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     
-     @post = @user.posts.find_by(id: params[:id])
+     @post = Post.find_by(id: params[:id])
 
   end
 

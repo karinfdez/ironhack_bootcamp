@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
-  get "/pages/:page" => "pages#show"
+  resources :photos
+  get "/pages/:page" => "photos#index"
   # Loaded as my home page
   root "pages#show", page: "home"
+  
 
   #To show list of all posts(same controller)
   get '/posts'=>'posts#index_all'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :posts do    
     resources :comments
-    end
+  end
 
 
   # resources :post do

@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#FIX THIS LATER ^^^^^
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,8 +35,11 @@ gem "mini_magick",'~>4.3.6'
 #To convert Less-CSS to Sass.
 gem 'bootstrap-sass','~>3.3.3'
 
-#To authenticate models(what can be used by users and admins)
-# gem 'cancan'
+#To schedule tasks.This gem schedules the tasks by creating cron jobs on server
+gem 'whenever', :require => true
+
+#To uploas multiple images.
+gem 'plupload-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

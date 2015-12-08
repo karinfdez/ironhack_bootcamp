@@ -36,6 +36,10 @@ class EventsController < ApplicationController
     elsif params[:drop_date]=='This week'
       week_range = Date.today.at_beginning_of_week..Date.today.at_end_of_week
       @events=@events.where(start_date: week_range)
+
+    elsif params[:drop_date]=='This month'
+      month_range = Date.today.at_beginning_of_month..Date.today.at_end_of_month
+      @events=@events.where(start_date: month_range)
     end  
   end
 

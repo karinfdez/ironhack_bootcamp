@@ -95,7 +95,7 @@ class PostsController < ApplicationController
       users = User.where("first_name LIKE ? OR last_name like ?", author_search, author_search)
       @posts_title = @posts_title.where(user_id: users.ids)
     end
-
+  end
     
   # DELETE /posts/1
   # DELETE /posts/1.json

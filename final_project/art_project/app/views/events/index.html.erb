@@ -6,7 +6,7 @@
     <%= text_field_tag :search_location, params[:search_location], class: "span2", placeholder: "Search by Location" %>
     <%#= text_field_tag :search_date, params[:search_date], class: "span2", placeholder: "Search by Date" %>
   <select name="drop_date">
-    <option value="" selected="selected">Search by date</option>
+    <option value="All dates" selected="selected">Search by date</option>
     <option value="Today">Today</option>
     <option value="Tomorrow">Tomorrow</option>
     <option value="This week">This week</option>
@@ -20,8 +20,7 @@
 <% end %>
 
 <h4>Listing Events</h4>
-
- <% if @events.count>0 %>
+ <% if @events.present?%>
   <table>
     <thead>
       <tr>

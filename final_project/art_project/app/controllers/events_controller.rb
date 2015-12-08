@@ -1,12 +1,5 @@
 class EventsController < ApplicationController
 
-  #The page the public can have access without log in is the index page.
-  
-  #Throw an exception if unauthorized user is trying to access this pages.
-  #Like an log in user but when not admin preferences.
-
-  #it's from cancan
-   # load_and_authorize_resource
   
   #Authenticate user when trying to edit, create or modify events(if it's not log in).
   before_action :authenticate_user!,except: [:index,:show]
@@ -19,48 +12,32 @@ class EventsController < ApplicationController
   
   def index
   
-    # @events = Event.where('start >= ?', Date.today).order(:start)
-
-     # @events = Event.all
-
-     if params[:search_event].present?
-      @events = Event.search(params[:search_event]).order("created_at DESC")
+    if params[:search_event].present?
+      @events = Event.search(params[:search_event]).order("start_date DESC")
     else
-      #If the searcher is empty, the show list of all events(order by last created)
-      @events= Event.order("created_at DESC")
+     @events= Event.order("start_date DESC")
     end
-
-
+    
     if params[:search_location].present?
       location_search = "%#{params[:search_location]}%"
-      @events= Event.where("location LIKE ?", location_search)
-      # @events = @events.where(location: event)
+      @events= @events.where("location LIKE ?", location_search)
     end
-
-    puts "this is a test"
-    puts params[:drop_date]
-
-    #If Today option is selected:
-    # if Event.where(drop_date: params[:drop_date])
-    if params[:drop_date] == 'This week'
-       # @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today] )
-     # elsif params[:drop_date] == 'This week'
-      @events=Event.where(:created_at => Date.today.at_beginning_of_day..Date.today.at_end_of_day)
-    #   # @events=Event.find(:all, conditions: ["DATE(created_at) = ?",Date.today.at_beginning_of_week..Date.today.at_end_of_week])
-    #   Event.where(:created_at => Date.today.at_beginning_of_day..Date.today.at_end_of_day)
-    #   #Search for tomorrow
-    # # elsif params[:drop_date].value.selected?
-    # #   @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today+1] )
-    # #   #week search
-    # # elsif params[:drop_date].value.selected?
-    # #   @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today+7] )
-    # # else
-    # #   #Month search
-    # #   @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today+30] )
-      end
-  end
     
- 
+
+    if params[:drop_date] == 'Today'
+      today_range = Date.today.beginning_of_day..Date.today.end_of_day
+      @events=@events.where(start_date: today_range)
+      
+    elsif params[:drop_date]=='Tomorrow'
+      tomorrow = Date.today+1
+      tomorrow_range = tomorrow.beginning_of_day..tomorrow.end_of_day
+      @events=@events.where(start_date: tomorrow_range)
+
+    elsif params[:drop_date]=='This week'
+      week_range = Date.today.at_beginning_of_week..Date.today.at_end_of_week
+      @events=@events.where(start_date: week_range)
+    end  
+  end
 
   # GET /events/1
   # GET /events/1.json

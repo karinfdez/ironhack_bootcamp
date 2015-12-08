@@ -36,7 +36,31 @@ class EventsController < ApplicationController
       @events= Event.where("location LIKE ?", location_search)
       # @events = @events.where(location: event)
     end
+
+    puts "this is a test"
+    puts params[:drop_date]
+
+    #If Today option is selected:
+    # if Event.where(drop_date: params[:drop_date])
+    if params[:drop_date] == 'This week'
+       # @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today] )
+     # elsif params[:drop_date] == 'This week'
+      @events=Event.where(:created_at => Date.today.at_beginning_of_day..Date.today.at_end_of_day)
+    #   # @events=Event.find(:all, conditions: ["DATE(created_at) = ?",Date.today.at_beginning_of_week..Date.today.at_end_of_week])
+    #   Event.where(:created_at => Date.today.at_beginning_of_day..Date.today.at_end_of_day)
+    #   #Search for tomorrow
+    # # elsif params[:drop_date].value.selected?
+    # #   @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today+1] )
+    # #   #week search
+    # # elsif params[:drop_date].value.selected?
+    # #   @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today+7] )
+    # # else
+    # #   #Month search
+    # #   @events=Event.find(:all, conditions: ["DATE(created_at) = ?", Date.today+30] )
+      end
   end
+    
+ 
 
   # GET /events/1
   # GET /events/1.json

@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
   # GET /posts/1/edit
   def edit
-    @post = @user.posts.find(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   # PATCH/PUT /posts/1

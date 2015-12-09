@@ -58,8 +58,8 @@
 <!-- Only logged user(artist) can modify the posts. The admin can't modify it-->
 <!-- Admin can delete posts only -->
 <% if current_user.present? %>
-	<%#= link_to 'Edit', edit_user_post_path(@user,@post) %>|
+	<%= link_to 'Edit', edit_post_path(@post) %>|
 <% end %>
 
-<%#= link_to 'Back', user_posts_path(@user) %>
+<%= link_to 'Back', posts_path %>
 

@@ -23,8 +23,8 @@
           <!-- <td><%#= post.content %></td> -->
           <%if current_user.present? && current_user.admin?%>
             <!-- <td><%#= link_to 'Show', user_post_path(@user, post)%></td> -->
-            <td><%= link_to 'Edit', edit_user_post_path(@user, post) %></td>
-            <td><%= link_to 'Destroy', [@user, post], { data: { confirm: 'Are you sure?' }, method: :delete} %></td>
+            <td><%#= link_to 'Edit', edit_user_post_path(@user, post) %></td>
+            <td><%#= link_to 'Destroy', [@user, post], { data: { confirm: 'Are you sure?' }, method: :delete} %></td>
         <% end%>
          </tr>
       <% end%>
@@ -35,6 +35,6 @@
     <h4>This artist does not have any post available.</h4>
 <% end%>
 <br>
- 
+ <%= link_to 'Back', user_path(@user) %>
 <!-- <a href='/users/<%#=@user.id%>'>Back</a> -->
 

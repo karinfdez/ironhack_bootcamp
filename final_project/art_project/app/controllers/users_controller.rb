@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 #Throw an exception if unauthorized user is trying to access this pages.
   #Like an log in user but when not admin preferences.
  # load_and_authorize_resource
-  before_filter :load_user
+  # before_filter :load_user
  
   #Authenticate user when trying to edit, create or modify users(if it's not log in).
   #Unauthorized users only can see artists and theirs blogs.
@@ -28,12 +28,12 @@ class UsersController < ApplicationController
 	end
 	
 	def create
-		 @user = User.create(user_params)
+		@user = User.create(user_params)
 
 	    respond_to do |format|
 	      if @user.save
 	      	UserMailer.welcome_email(@user).deliver_now
-	        format.html { redirect_to user_path(@user), notice: 'User was successfully created.' }
+	        format.html { redirect_to @user, notice: 'User was successfully created.' }
 	        format.json { render :show, status: :created, location: @user}
 	      else
 	        format.html { render :new }

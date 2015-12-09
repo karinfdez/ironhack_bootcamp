@@ -39,7 +39,11 @@ class PostsController < ApplicationController
   def new
     #Helper method load has the before_action method where I don't have
     #to define new post
-    @post = @user.posts.new
+    if @user.nil?
+      redirect_message
+    else
+      @post = @user.posts.new 
+    end
 
   end
 

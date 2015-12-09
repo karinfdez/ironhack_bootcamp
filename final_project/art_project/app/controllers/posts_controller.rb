@@ -16,7 +16,8 @@ class PostsController < ApplicationController
   #Only show posts for the specific user
   def index
     if @user.nil?
-      @posts = Post.all
+      redirect_message
+      # @posts = Post.all
     else
       @posts = @user.posts
     end
@@ -66,6 +67,9 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find_by(id: params[:id])
+    if @post.nil?
+      redirect_message
+    end
   end
 
   # PATCH/PUT /posts/1

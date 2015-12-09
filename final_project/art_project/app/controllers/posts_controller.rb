@@ -108,14 +108,24 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    #Only administrator remove the posts. Artist only edit them.
+    # if @user.nil?
+      @post=Post.find_by(id: params[:id])
+    # end
+    # else
+     # @post = @user.posts.find(params[:id])
+    # end
 
-    @post = @user.posts.find(params[:id])
     if @post.destroy
     respond_to do |format|
-      format.html { redirect_to user_posts_path, notice: 'Post was successfully destroyed.' }
+      # if @user.nil?
+        # format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
+      # else
+      format.html { redirect_to 'posts', notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
-      end
     end
+    end
+ 
   end
 
   private

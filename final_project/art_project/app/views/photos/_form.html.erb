@@ -5,7 +5,8 @@
 </div>
 <div>
   <%=f.label :image, 'Choose Image'%>
-  <%=f.file_field :image %>
+  <%= f.file_field :avatars, multiple: true %>
+  <%#=f.file_field :image %>
 </div>
 <div>
   <%= f.submit 'Add' %>

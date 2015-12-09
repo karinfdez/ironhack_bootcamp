@@ -7,6 +7,9 @@
     <%#= text_field_tag :search_date, params[:search_date], class: "span2", placeholder: "Search by Date" %>
   <select name="drop_date">
     <option value="All dates" selected="selected">Search by date</option>
+    <%if current_user.present? && current_user.admin?%>
+      <option value="Past events">Past Events</option>
+    <% end %>
     <option value="Today">Today</option>
     <option value="Tomorrow">Tomorrow</option>
     <option value="This week">This week</option>

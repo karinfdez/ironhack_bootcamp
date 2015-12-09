@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   
   resources :photos
-  get "/pages/:page" => "photos#index"
+ 
+   # get "/pages/gallery" => "image_galleries#index"
+   
+   # get "pages#show", page: "about"
   # Loaded as my home page
+ 
+  get "pages/about"=>"pages#about"
+  get "pages/gallery"=>"pages#gallery"
   root "pages#show", page: "home"
   
 

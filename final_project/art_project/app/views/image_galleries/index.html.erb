@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Image Galleries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @image_galleries.each do |image_gallery| %>
+      <tr>
+        <td><%= image_gallery.picture %></td>
+        <td><%= link_to 'Show', image_gallery %></td>
+        <td><%= link_to 'Edit', edit_image_gallery_path(image_gallery) %></td>
+        <td><%= link_to 'Destroy', image_gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image gallery', new_image_gallery_path %>

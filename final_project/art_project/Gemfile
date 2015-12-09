@@ -28,18 +28,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise','~>3.5.2'
 
 #Gem to process images(upload)
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 #Gem to modify images
 gem "mini_magick",'~>4.3.6'
 #To convert Less-CSS to Sass.
 gem 'bootstrap-sass','~>3.3.3'
+# Redis for Rails
+gem 'redis-rails' # Will install several other redis-* gems
+# Resque
+gem 'resque'
+# Resque Scheduler
+gem 'resque-scheduler'
 
 #To schedule tasks.This gem schedules the tasks by creating cron jobs on server
-gem 'whenever', :require => true
-
-#To uploas multiple images.
-gem 'plupload-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

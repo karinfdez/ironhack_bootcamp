@@ -17,13 +17,13 @@
 
 class Event < ActiveRecord::Base
 	#Events validations
-	# validates :title,:location,:description, :organizer_name,:event_type,presence: true
-	# validates :title,:organizer_name,length: { minimum: 1 }
+	validates :title,:location,:description, :organizer_name,:event_type,presence: true
+	validates :title,:organizer_name,length: { minimum: 1 }
 	#To load images to the event (uploader/image_uploader)
-	mount_uploader :image,ImageUploader
+	mount_uploader :image, ImageUploader
 
 # Method to validate the start_date and end_date of the event
-	# validate :date_cannot_be_in_the_past
+	validate :date_cannot_be_in_the_past
 	
 	def date_cannot_be_in_the_past
 		if start_date.present? && start_date < Date.today

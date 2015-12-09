@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
+    Resque.enqueue(CreateEventJob)
     @photos = Photo.all
   end
 

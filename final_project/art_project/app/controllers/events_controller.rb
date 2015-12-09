@@ -13,20 +13,23 @@ class EventsController < ApplicationController
   def index
   
     if params[:search_event].present?
-      @events = Event.search(params[:search_event]).order("start_date DESC")
+      list_title = Event.search(params[:search_event]).order("start_date DESC")
+      @events=list_title.where('ends_date >= ?', Time.now).order("start_date DESC")
     else
-     @events= Event.order("start_date DESC")
+      #Hide due date events
+      @events=Event.where('ends_date >= ?', Time.now).order("start_date DESC")
     end
     
     if params[:search_location].present?
       location_search = "%#{params[:search_location]}%"
       @events= @events.where("location LIKE ?", location_search)
     end
-    
-
     if params[:drop_date] == 'Today'
       today_range = Date.today.beginning_of_day..Date.today.end_of_day
       @events=@events.where(start_date: today_range)
+
+     elsif params[:drop_date] == 'Past events'
+      @events=Event.where('ends_date <= ?', Time.now).order("start_date DESC")
       
     elsif params[:drop_date]=='Tomorrow'
       tomorrow = Date.today+1

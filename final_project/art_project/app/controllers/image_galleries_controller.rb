@@ -71,6 +71,6 @@ class ImageGalleriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_gallery_params
       
-      params.require(:image_gallery).permit({ picture: [] })
+      params.require(:image_gallery).permit(:title,:date,{ picture: [] })
     end
 end

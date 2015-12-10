@@ -13,7 +13,7 @@
   <tbody>
     <% @image_galleries.each do |image_gallery| %>
       <tr>
-        <td><%= image_gallery.picture %></td><br>
+        <td><a href="/image_galleries/<%=image_gallery.id%>"><img src="<%= image_gallery.picture[0]%>"></a></td>
         <td><%= link_to 'Show', image_gallery %></td>
         <td><%= link_to 'Edit', edit_image_gallery_path(image_gallery) %></td>
         <td><%= link_to 'Destroy', image_gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>

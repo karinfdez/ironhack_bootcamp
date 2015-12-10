@@ -11,10 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.file_field :picture, multiple: true %>
+   <div class="field">
+  <%= f.label :title %>
+    <%= f.text_field :title %><br>
+  <%= f.label :date %>
+    <%= f.date_field :date %><br>
+    <%= f.label :picture %>
+    <%= f.file_field :picture, multiple: true %><br>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

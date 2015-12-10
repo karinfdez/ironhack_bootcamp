@@ -55,9 +55,9 @@
   </p>
 <% end %>
 
-<!-- Only logged user(artist) can modify the posts. The admin can't modify it-->
+<!-- Only logged user(artist) and the owner of the post can modify the posts. The admin can't modify it-->
 <!-- Admin can delete posts only -->
-<% if current_user.present? %>
+<% if current_user.present? && current_user.id==@post.user.id %>
 	<%= link_to 'Edit', edit_post_path(@post) %>|
 <% end %>
 

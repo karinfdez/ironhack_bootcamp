@@ -22,7 +22,8 @@ class UsersController < ApplicationController
 	  @users = User.where(admin: false).order("first_name ASC")
 
 	  if params[:search_user].present?	
-	  	
+	  	#Storing user with capital letter on first letter of name and rest downcase.
+
        user_search= "#{params[:search_user]}"
        @users= @users.where("first_name ILIKE ? OR last_name ILIKE ?", "%#{user_search}%","%#{user_search}%")
      

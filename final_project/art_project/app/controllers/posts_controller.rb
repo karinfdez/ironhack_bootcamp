@@ -75,8 +75,12 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post = @user.posts.find(params[:id])
-    respond_to do |format|
+    if @user.nil?
+      @post=Post.find_by(id: params[:id])
+    else
+      @post = @user.posts.find(params[:id])
+    end
+      respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to [@user, @post], notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }

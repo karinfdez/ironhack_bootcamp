@@ -2,26 +2,20 @@
 
 <h1>Listing Image Galleries</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @image_galleries.each do |image_gallery| %>
-      <tr>
-        <td><a href="/image_galleries/<%=image_gallery.id%>"><img src="<%= image_gallery.picture[0]%>"></a></td>
-        <td><%= link_to 'Show', image_gallery %></td>
-        <td><%= link_to 'Edit', edit_image_gallery_path(image_gallery) %></td>
-        <td><%= link_to 'Destroy', image_gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        
+        <p><%=image_gallery.title%> :<%=image_gallery.date%></p>
+        <a href="/image_galleries/<%=image_gallery.id%>"><img src="<%= image_gallery.picture[0]%>"></a>
+     
+      <%if current_user.present? && current_user.admin?%>
+       <%= link_to 'Edit', edit_image_gallery_path(image_gallery) %>
+        <%= link_to 'Destroy', image_gallery, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Image gallery', new_image_gallery_path %>
+    <br>
+ 
+ <%if current_user.present? && current_user.admin?%>
+  <%= link_to 'New Image gallery', new_image_gallery_path %>
+ <% end %>

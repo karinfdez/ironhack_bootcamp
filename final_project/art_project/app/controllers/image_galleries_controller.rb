@@ -10,7 +10,7 @@ class ImageGalleriesController < ApplicationController
   # GET /image_galleries/1
   # GET /image_galleries/1.json
   def show
-    p @image_gallery.picture
+    # p @image_gallery.picture
   end
 
   # GET /image_galleries/new

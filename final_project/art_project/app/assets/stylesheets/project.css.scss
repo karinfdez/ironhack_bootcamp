@@ -1,0 +1,46 @@
+/*All project css are here*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*General*/
+/*body {
+  padding-top: 60px;
+}*/
+
+/*Typografy*/
+ h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+/*h1 {
+   font-size: 2em;
+   letter-spacing: -2px;
+   margin-bottom: 30px;
+   /*text-align: center;
+}
+*/
+
+/*Logo*/
+/*#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #blue;
+  text-decoration: none;
+}
+*/
+
+/*To show images using javascript plugin*/
+.galleria{ 
+ 	width: 100%;
+ 	height: 500px;
+ 	// default black background:
+ 	background: #000 
+ }

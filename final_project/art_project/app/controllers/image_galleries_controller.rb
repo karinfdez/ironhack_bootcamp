@@ -10,7 +10,6 @@ class ImageGalleriesController < ApplicationController
   # GET /image_galleries/1
   # GET /image_galleries/1.json
   def show
-    puts "-------------HOLAAA--------------"
     p @image_gallery.picture
   end
 
@@ -27,10 +26,6 @@ class ImageGalleriesController < ApplicationController
   # POST /image_galleries.json
   def create
     @image_gallery = ImageGallery.new(image_gallery_params)
-
-    puts "*************888KSJDHJKFSDFJSDH"
-    p @image_gallery
-    p image_gallery_params
 
     respond_to do |format|
       if @image_gallery.save
@@ -75,6 +70,7 @@ class ImageGalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_gallery_params
+      
       params.require(:image_gallery).permit({ picture: [] })
     end
 end

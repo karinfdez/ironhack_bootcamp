@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+
   <strong>Picture:</strong>
-  <ul>
+  <div class="galleria">
 	  <% @image_gallery.picture.each do |pic| %>
-	  	<li><img src="<%= pic.url %>"></li>
+	  	<img src="<%= pic.url %>">
 	  <% end %>
-  </ul>
-</p>
+  </div>
+
+<script>Galleria.loadTheme('../galleria/themes/classic/galleria.classic.min.js');
+ Galleria.run('.galleria');
+</script>
 
 <%= link_to 'Edit', edit_image_gallery_path(@image_gallery) %> |
 <%= link_to 'Back', image_galleries_path %>

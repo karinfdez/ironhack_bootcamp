@@ -14,16 +14,12 @@ Rails.application.routes.draw do
   resources :posts do    
     resources :comments
   end
+  resources :image_galleries
   
   
   get "pages/about"=>"pages#about"
-  get "pages/gallery"=>"pages#gallery"
+  get "pages/gallery"=>"image_galleries#index"
   root "pages#show", page: "home"
-  
-
-  #To show list of all posts(same controller)
-  
-  # root 'events#index'
   
 end
 

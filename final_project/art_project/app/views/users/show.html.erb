@@ -1,6 +1,7 @@
 
 	<h1><%= @user.first_name+' '+@user.last_name%></h1>
-	<td><img src='<%= @user.image_url(:thumb) %>'></td>
+	<td><%= image_tag @user.image_url(:thumb) %></td>
+
 
 	<p>Contact email:<strong><%=@user.email%></strong></p>
 	<p>Description of artist:</p>

@@ -143,6 +143,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    redirect_on_back (1.0.0)
+      jquery-rails
+      railties (>= 3.1)
     redis (3.2.2)
     redis-actionpack (4.0.1)
       actionpack (~> 4)
@@ -236,6 +239,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.2.4)
+  redirect_on_back
   redis-rails
   resque
   resque-scheduler

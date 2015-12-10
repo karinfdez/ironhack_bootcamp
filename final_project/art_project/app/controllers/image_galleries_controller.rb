@@ -16,6 +16,7 @@ class ImageGalleriesController < ApplicationController
   # GET /image_galleries/new
   def new
     @image_gallery = ImageGallery.new
+    @stale_form_check_timestamp = Time.now.to_i
   end
 
   # GET /image_galleries/1/edit
@@ -26,6 +27,7 @@ class ImageGalleriesController < ApplicationController
   # POST /image_galleries.json
   def create
     @image_gallery = ImageGallery.new(image_gallery_params)
+
 
     respond_to do |format|
       if @image_gallery.save

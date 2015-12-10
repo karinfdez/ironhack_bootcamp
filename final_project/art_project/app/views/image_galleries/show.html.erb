@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-  <strong>Picture:</strong>
+  
   <div class="galleria">
 	  <% @image_gallery.picture.each do |pic| %>
 	  	<img src="<%= pic.url %>">
@@ -12,5 +12,4 @@
  Galleria.run('.galleria');
 </script>
 
-<%= link_to 'Edit', edit_image_gallery_path(@image_gallery) %> |
 <%= link_to 'Back', image_galleries_path %>

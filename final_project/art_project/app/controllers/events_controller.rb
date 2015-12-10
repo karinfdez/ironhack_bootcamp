@@ -19,7 +19,8 @@ class EventsController < ApplicationController
       #Hide due date events
       @events=Event.where('ends_date >= ?', Time.now).order("start_date DESC")
     end
-    
+    # THIS IS GOING TO BE REFACTORED ASAP
+    # SAYS JOSH
     if params[:search_location].present?
       location_search = "%#{params[:search_location]}%"
       @events= @events.where("location LIKE ?", location_search)
@@ -54,6 +55,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @stale_form_check = Time.now.to_i
   end
 
   # GET /events/1/edit
@@ -65,7 +67,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

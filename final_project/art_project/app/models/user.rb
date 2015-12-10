@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
-         # :timeoutable Isn't working
+         # ,:timeoutable #Isn't working
          # :registerable  This was to remove the sign up
   
   #This is call on every model I will need to upload an image

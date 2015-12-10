@@ -19,15 +19,24 @@ class UsersController < ApplicationController
 		
 		# @admins=User.where(admin: true)
 	    #Only show users that aren't admin(only the community are shown)
-	    @users = User.where(admin: false)
+	  @users = User.where(admin: false).order("first_name ASC")
+
+	  if params[:search_user].present?	
+	  	#Storing user with capital letter on first letter of name and rest downcase.
+
+       user_search= "#{params[:search_user]}".downcase.capitalize
+       @users= @users.where("first_name ILIKE ? OR last_name LIKE ?", "%#{user_search}%","%#{user_search}%")
+     
+     end
+    end
 	  
-	end
 
 	def new
 		@user=User.new
 	end
 	
 	def create
+
 		@user = User.create(user_params)
 
 	    respond_to do |format|

@@ -3,42 +3,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 /*General*/
-/*body {
-    min-width: 1140px; 
-}*/
 
-/*Typografy*/
- /*h1, h2, h3, h4, h5, h6 {
-	line-height: 1;
-}*/
-/*h1 {
-   font-size: 2em;
-   letter-spacing: -2px;
-   margin-bottom: 30px;
-   /*text-align: center;
-}
-*/
-
-/*Logo*/
-/*#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-}
-
-#logo:hover {
-  color: #blue;
-  text-decoration: none;
-}
-*/
 .border-logo{
 
-	position: fixed;
+	position: absolute;
   	margin-left: 13em;
  	margin-top: 48px;
 	border: 3px solid rgba(255, 255, 255, 0.6);
@@ -46,13 +14,13 @@
 	font-family: 'BenchNine', sans-serif;
 	font-size: 19px;
 
-};
+}
 .logo_small{
 	margin-top: 2em;
 	margin-left:4em;
 	/*padding-left: 20px;*/
 
-};
+}
 
 /*Home page background image with gradient*/
 .homepage_image{
@@ -61,8 +29,21 @@
   height: 100vh;
   background: -webkit-linear-gradient(rgba(0,22,45,0.5) 10%, rgba(255,255,255,0.2) 50%),
   url("homepage1.jpg") center center no-repeat;
+  background-attachment: fixed;
+  z-index: -2;
+  position: relative;
     
- };
+ }
+
+ .logo_big {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  
+
+}
 
 /*Navegation buttoms*/
 .navbar-nav li a {
@@ -74,14 +55,25 @@
     /*To take the gray of the hover bootstrap*/
      color: rgba(0,22,60,0.5);
      border-bottom:3px solid rgba(0,22,60,0.5);
-     background-color: transparent; ;
-};
+     background-color: transparent;
+}
+#home-section{
+	padding: 0;
 
+}
+.module.content{
+	background-color: white;
+}
 
-.some_other {
-	height: 100vh;
+/*#slide-2 .hsContent {
+    margin-left: -450px;
+    top: auto;
+}
+#slide-2 h2 {
+    position: fixed;
+    top: 70%;
+}*/
 
-};
 /*.sep-elements{
 	border-right: 10px;
 }*/
@@ -91,4 +83,4 @@
  	height: 500px;
  	// default black background:
  	background: #000 
- };
+ }

@@ -13,7 +13,6 @@
   <!-- Font used on the nav buttons -->
   <link href='https://fonts.googleapis.com/css?family=BenchNine:400,300' rel='stylesheet' type='text/css'>
 </head>
-<div id='container'>
 <body>
 	<div class="container-fluid" id="home-section">
   	<!-- First row for the nav links -->
@@ -22,7 +21,7 @@
   		<div class="col-md-3">
  		  	<ul class="nav navbar-nav navbar-center">
  				 	<!-- <li><%= link_to 'LOGO',href='/'%></li>  -->
- 				 	<li><%= image_tag 'Logo_menu.png', alt: 'logo', :class => "logo_small"%></li>
+ 				 	<a href="/"><li><%= image_tag 'Logo_menu.png', alt: 'logo', :class => "logo_small"%></li></a>
  				</ul>
  			</div>
 
@@ -43,6 +42,7 @@
 	  				<li><%= link_to 'LOG IN',  user_session_path %></li>
 					<% end %>
 				 </ul>
+
  			 	</div>
  			 	<!-- Empty space that separates the nav buttons -->
  			  <!-- <div class="col-md-5">
@@ -69,6 +69,8 @@
 	<%= yield %>
 </div>
 
+</div>
+
 <!-- <footer>
 	<div class='vertical-center'>
 		<spam>2015 ArtProject</spam>
@@ -77,5 +79,4 @@
 	</div>
 </footer> -->
 </body>
-</div>
 </html>

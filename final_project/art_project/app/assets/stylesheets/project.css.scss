@@ -30,6 +30,7 @@
   background: -webkit-linear-gradient(rgba(0,22,45,0.5) 10%, rgba(255,255,255,0.2) 50%),
   url("homepage1.jpg") center center no-repeat;
   background-attachment: fixed;
+  /*Place the background image behind the blue logo*/
   z-index: -2;
   position: relative;
     
@@ -84,3 +85,12 @@
  	// default black background:
  	background: #000 
  }
+
+footer{
+	background: -webkit-linear-gradient(left,rgba(63,196,169,1)40%, rgba(132,225,255,1)),
+    center center no-repeat;
+	/*background-image:-moz-linear-gradient(left,rgb(63,196,169), rgb(132,255,255));*/
+	/*background-color: rgb(63,196,169);*/
+	padding: 25px;
+}
+

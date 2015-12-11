@@ -22,7 +22,6 @@
   	<!-- Column on first row to insert logo -->
   		<div class="col-md-3">
  		  	<ul class="nav navbar-nav navbar-center">
- 				 	<!-- <li><%= link_to 'LOGO',href='/'%></li>  -->
  				 	<a href="/"><li><%= image_tag 'Logo_menu.png', alt: 'logo', :class => "logo_small"%></li></a>
  				</ul>
  			</div>
@@ -32,7 +31,7 @@
 			<!-- Row for dividing the nav buttons inside the  -->
  			 <!-- <div class="row center-buttons"> -->
  			 	<div class=class="col-md-2 text">
- 			 		<ul class="nav navbar-nav navbar-center">
+ 			 		<ul class="nav navbar-nav navbar-left">
 						<% if user_signed_in? && !current_user.admin?%>
 	  				<li>Welcome <%#= current_user.first_name+ ' ' +current_user.last_name%></li>
 	  				<li><%= link_to 'LOGOUT', destroy_user_session_path, method: 'DELETE' %></li>
@@ -51,7 +50,7 @@
  			  	
  			  </div> -->
  			  <div class=class="col-md-5 home-nav">
- 			  	<ul class="nav navbar-nav navbar-right ">
+ 			  	<ul class="nav navbar-nav navbar-right top-menu">
 				<!-- <li><%#= link_to 'Home',href='/'%></li> -->
 					<li class="sep-elements"><%= link_to 'ABOUT',href='/pages/about'%></li> 
 					<li class="sep-elements"><%= link_to 'EVENTS', events_path %></li> 

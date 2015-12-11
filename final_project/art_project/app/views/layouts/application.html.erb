@@ -13,19 +13,20 @@
 </head>
 <div id='container'>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" id="home-section">
   	<!-- First row for the nav links -->
-  	<div class="row header-row">
+  	<!-- <div class="row header-row"> -->
   	<!-- Column on first row to insert logo -->
   		<div class="col-md-2">
  		  	<ul class="nav navbar-nav navbar-center">
  				 	<li><%= link_to 'LOGO',href='/'%></li> 
  				</ul>
  			</div>
- 			<!-- Column that holds the main nav -->
- 			<div class="col-md-8">
+
+ 			<!-- Column that holds the border nav -->
+ 			<div class="col-md-9 border-logo">
 			<!-- Row for dividing the nav buttons inside the  -->
- 			 <div class="row center-buttons">
+ 			 <!-- <div class="row center-buttons"> -->
  			 	<div class=class="col-md-2">
  			 		<ul class="nav navbar-nav navbar-center">
 						<% if user_signed_in? && !current_user.admin?%>
@@ -40,23 +41,22 @@
 					<% end %>
 				 </ul>
  			 	</div>
- 			 	</div>
- 				<ul class="nav navbar-nav">
+ 			 	<!-- Empty space that separates the nav buttons -->
+ 			  <div class="col-md-5">
+ 			  	
+ 			  </div>
+ 			  <div class=class="col-md-5">
+ 			  	<ul class="nav navbar-nav navbar-right ">
 				<!-- <li><%#= link_to 'Home',href='/'%></li> -->
-				
-					<li><%= link_to 'About',href='/pages/about'%></li> 
-					<li><%= link_to 'Events', events_path %></li> 
-					<li><%= link_to 'Artists', users_path %></li> 
-					<li><%= link_to 'Posts', href='/posts' %></li> 
-					<li><%= link_to 'Gallery', href='/pages/gallery' %></li>
-			</ul>
+					<li class="sep-elements"><%= link_to 'About',href='/pages/about'%></li> 
+					<li class="sep-elements"><%= link_to 'Events', events_path %></li> 
+					<li class="sep-elements"><%= link_to 'Artists', users_path %></li> 
+					<li class="sep-elements"><%= link_to 'Posts', href='/posts' %></li> 
+					<li class="sep-elements"><%= link_to 'Gallery', href='/pages/gallery' %></li>
+			    </ul>
+ 			  </div>
  			</div>
 
-      
-		<!-- </nav> -->
-	</div>
-	
-</header>
 <!-- <a href='/'>Home</a> | -->
 <!-- To send alerts when log in or log out sucessful -->
 <!-- Alert when user or password aren't on database -->

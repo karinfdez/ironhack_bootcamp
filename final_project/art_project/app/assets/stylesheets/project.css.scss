@@ -37,20 +37,29 @@
 }
 */
 .border-logo{
-	  border: 2px solid red;
+	  /*border: 5px solid white;*/
+	  border: 5px solid rgba(255, 255, 255, 0.6);
 	  height: 40px; /*border-top:-50px;*/
-}
+	  font-family: 'BenchNine', sans-serif;
+	  font-size: 19px;
+};
+
 
 .homepage_image{
     height: 100vh;
 	width: 100%;
-	background-image: asset-url("homepage1.jpg");
-}
+ 
+
+  background: -webkit-linear-gradient(rgba(0,0,0,0.5) 10%, rgba(255,255,255,0.2) 50%),
+  url("homepage1.jpg") no-repeat;
+
+    
+ };
 
 .some_other {
 	height: 100vh;
 
-}
+};
 /*.sep-elements{
 	border-right: 10px;
 }*/
@@ -60,4 +69,4 @@
  	height: 500px;
  	// default black background:
  	background: #000 
- }
+ };

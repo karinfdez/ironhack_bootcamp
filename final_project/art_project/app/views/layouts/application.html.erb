@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Font used on the nav buttons -->
   <link href='https://fonts.googleapis.com/css?family=BenchNine:400,300' rel='stylesheet' type='text/css'>
 </head>
 <div id='container'>
@@ -18,14 +19,15 @@
   	<!-- First row for the nav links -->
   	<!-- <div class="row header-row"> -->
   	<!-- Column on first row to insert logo -->
-  		<div class="col-md-2">
+  		<div class="col-md-3">
  		  	<ul class="nav navbar-nav navbar-center">
- 				 	<li><%= link_to 'LOGO',href='/'%></li> 
+ 				 	<!-- <li><%= link_to 'LOGO',href='/'%></li>  -->
+ 				 	<li><%= image_tag 'Logo_menu.png', alt: 'logo', :class => "logo_small"%></li>
  				</ul>
  			</div>
 
  			<!-- Column that holds the border nav -->
- 			<div class="col-md-9 border-logo">
+ 			<div class="col-md-8 border-logo">
 			<!-- Row for dividing the nav buttons inside the  -->
  			 <!-- <div class="row center-buttons"> -->
  			 	<div class=class="col-md-2 text">

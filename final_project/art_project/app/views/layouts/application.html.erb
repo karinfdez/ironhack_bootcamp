@@ -28,7 +28,7 @@
  			<div class="col-md-9 border-logo">
 			<!-- Row for dividing the nav buttons inside the  -->
  			 <!-- <div class="row center-buttons"> -->
- 			 	<div class=class="col-md-2">
+ 			 	<div class=class="col-md-2 text">
  			 		<ul class="nav navbar-nav navbar-center">
 						<% if user_signed_in? && !current_user.admin?%>
 	  				<li>Welcome <%#= current_user.first_name+ ' ' +current_user.last_name%></li>
@@ -43,10 +43,10 @@
 				 </ul>
  			 	</div>
  			 	<!-- Empty space that separates the nav buttons -->
- 			  <div class="col-md-5">
+ 			  <!-- <div class="col-md-5">
  			  	
- 			  </div>
- 			  <div class=class="col-md-5">
+ 			  </div> -->
+ 			  <div class=class="col-md-5 home-nav">
  			  	<ul class="nav navbar-nav navbar-right ">
 				<!-- <li><%#= link_to 'Home',href='/'%></li> -->
 					<li class="sep-elements"><%= link_to 'ABOUT',href='/pages/about'%></li> 

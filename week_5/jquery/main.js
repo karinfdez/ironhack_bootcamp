@@ -36,7 +36,7 @@ $(document).on("ready",function(){
 		$("body :not('.js-button')").fadeToggle();
 		// Show me what this button is taking (is an array)
 		console.log($(":not('.js-button')"));
-     // To change the text of the button one is press:
+
 		if 	($(".js-button").text()==="Fade in"){
 			$(".js-button").text("Fade out");
 		}

@@ -2,18 +2,30 @@
 
 <h2>Project entries</h2>
 
+<% if flash[:notice].present? %>
+	<div class="notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
 <h3>
 	<%= @proj.name%>
 </h3>
 
-<%= render ("form") %>
+<% if flash[:notice].present? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
-<!-- <ul>
-	<%# @entries.each do |entr|%>
+<ul>
+	<% @entr.each do |entr|%>
  		<li>
- 		<%= entr.hours %> hours 	<!--hours along is a label -->
-	   	<!-- <%#= entr.minutes %> minutes -->
-	   <!-- </li> -->
-	  <!--  <%# end%>
+ 		<%= entr.hours %> hours 	
+	   	<%= entr.minutes %> minutes 
+	   	<a href="/projects/<%=@proj.id %>/entries/<%=entr.id %>/edit">Edit</a>
+	   	<a href="/projects/<%=@proj.id %>/entries/<%=entr.id %>">Delete</a>
+	   </li>
+	 <% end%>
 </ul>
-<a href="/projects/<%= @proj.id%>/entries/new">add new entry</a> -->
+<a href="/projects/<%= @proj.id%>/entries/new">add new entry</a>

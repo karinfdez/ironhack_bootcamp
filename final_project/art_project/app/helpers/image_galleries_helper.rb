@@ -1,2 +1,0 @@
-module ImageGalleriesHelper
-end

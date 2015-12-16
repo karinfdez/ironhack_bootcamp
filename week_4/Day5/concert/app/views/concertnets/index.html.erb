@@ -1,7 +1,13 @@
-
+<% if user_signed_in?%>
+		<header>
+    		Hello, <%= current_user.email %>
+    		<a href="/users/sign_out" data-method="delete">Log out</a>
+  		</header>
+<% end %>
 
 <div class="main">
 <h1>Concerts for <%=@date%></h1>
+	
 	<ul>
 		<% @concerts.each do |concert| %>
 		<a href='/concertnets/<%=concert.id %>/comments'><li>
@@ -12,7 +18,9 @@
 		</li></a>
 
 		<% end %>
-		<a href='/concertnets/new'>Create concert</a>
+		<% if user_signed_in?%>
+			<a href='/concertnets/new'>Create concert</a><br>
+		<% end %>
 	</ul>
 </div>
 
@@ -26,7 +34,11 @@
 			Artist:<%= concert.artist %><br>
 			Date:<%= concert.date %><br>
 			Avenue:<%= concert.venue %><br>
-			Price/p:<%= concert.price%><br><br>
+			Price/p:<%= concert.price%><br>
+
+				<% if user_signed_in? %>
+				<a href="/concertnets/<%= concert.id %>/comments">Add a comment</a><br>
+			<% end %>
 		</li>
 		<% end %>
     </ul>

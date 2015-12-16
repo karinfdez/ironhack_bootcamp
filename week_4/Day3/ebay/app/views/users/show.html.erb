@@ -1,0 +1,14 @@
+<h3><%= @users.name %> List of products:</h3>
+   <!-- How to show list of products -->
+ 		
+ 		<!-- products is an array -->
+ 		<% @users.products.each do | product | %><br>
+ 			<%= product.title %>
+ 			<%= product.description %>
+ 			<%= product.deadline %>
+ 		<% end %>
+ 		<!-- How to show id of user -->
+ 		<a href="/users/<%= @users.id %>/products/new">
+ 			Create new product
+ 		</a>
+ 		

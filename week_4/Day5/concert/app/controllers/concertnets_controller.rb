@@ -1,4 +1,9 @@
 class ConcertnetsController < ApplicationController
+	
+   # Authentification of my actions only(new and create because
+   # are the ones involve on creating concerts).
+    before_action :authenticate_user!, only:['new','create']
+
 	def index
 		# @concerts=Concertnet.all
 		@concerts=Concertnet.where(date: (DateTime.now.beginning_of_day..DateTime.now.end_of_day))

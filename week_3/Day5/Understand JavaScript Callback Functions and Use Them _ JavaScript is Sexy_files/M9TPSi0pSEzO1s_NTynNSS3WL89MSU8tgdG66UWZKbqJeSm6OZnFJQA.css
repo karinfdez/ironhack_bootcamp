@@ -1,0 +1,120 @@
+
+/* widget-grid-and-list.css */
+
+/* 1   */ /* 2-Column Grid Layout */
+/* 2   */ 
+/* 3   */ .widgets-grid-layout {
+/* 4   */ 	width: 100%;
+/* 5   */ }
+/* 6   */ 
+/* 7   */ .widgets-grid-layout:before,
+/* 8   */ .widgets-grid-layout:after {
+/* 9   */ 	content: " ";
+/* 10  */ 	display: table;
+/* 11  */ }
+/* 12  */ 
+/* 13  */ .widgets-grid-layout:after {
+/* 14  */ 	clear: both;
+/* 15  */ }
+/* 16  */ 
+/* 17  */ .widget-grid-view-image {
+/* 18  */ 	float: left;
+/* 19  */ 	max-width: 50%;
+/* 20  */ }
+/* 21  */ 
+/* 22  */ .widget-grid-view-image a {
+/* 23  */ 	display: block;
+/* 24  */ 	margin: 0 2px 4px 0;
+/* 25  */ }
+/* 26  */ 
+/* 27  */ .widget-grid-view-image:image:nth-child(even) {
+/* 28  */ 	float: right;
+/* 29  */ }
+/* 30  */ 
+/* 31  */ .widget-grid-view-image:nth-child(even) a {
+/* 32  */ 	margin: 0 0 4px 2px;
+/* 33  */ }
+/* 34  */ 
+/* 35  */ .widgets-grid-layout .widget-grid-view-image img {
+/* 36  */ 	max-width: 100%;
+/* 37  */ 	height: auto;
+/* 38  */ }
+/* 39  */ 
+/* 40  */ /* Multi-Column Grid Layout */
+/* 41  */ 
+/* 42  */ .widgets-multi-column-grid ul {
+/* 43  */ 	overflow: hidden;
+/* 44  */ 	padding: 0;
+/* 45  */ 	margin: 0;
+/* 46  */ 	list-style-type: none;
+/* 47  */ }
+/* 48  */ 
+/* 49  */ .widgets-multi-column-grid ul li {
+/* 50  */ 	background: none;
+
+/* widget-grid-and-list.css */
+
+/* 51  */ 	clear: none;
+/* 52  */ 	float: left;
+/* 53  */ 	margin: 0 -5px -3px 0;
+/* 54  */ 	padding: 0 8px 6px 0;
+/* 55  */ 	border: none;
+/* 56  */ 	list-style-type: none !important;
+/* 57  */ }
+/* 58  */ 
+/* 59  */ .widgets-multi-column-grid ul li a {
+/* 60  */ 	background: none;
+/* 61  */ 	margin: 0;
+/* 62  */ 	padding: 0;
+/* 63  */ 	border: 0;
+/* 64  */ }
+/* 65  */ 
+/* 66  */ .widgets-multi-column-grid .avatar {
+/* 67  */ 	vertical-align: middle;
+/* 68  */ }
+/* 69  */ 
+/* 70  */ /* List Layout */
+/* 71  */ 
+/* 72  */ .widgets-list-layout {
+/* 73  */ 	padding: 0;
+/* 74  */ 	margin: 0;
+/* 75  */ 	list-style-type: none;
+/* 76  */ }
+/* 77  */ 
+/* 78  */ .widgets-list-layout li:before,
+/* 79  */ .widgets-list-layout li:after {
+/* 80  */ 	content:"";
+/* 81  */ 	display:table;
+/* 82  */ }
+/* 83  */ .widgets-list-layout li:after {
+/* 84  */ 	clear:both;
+/* 85  */ }
+/* 86  */ .widgets-list-layout li {
+/* 87  */ 	zoom:1;
+/* 88  */ 	margin-bottom: 1em;
+/* 89  */ 	list-style-type: none !important;
+/* 90  */ }
+/* 91  */ 
+/* 92  */ .widgets-list-layout .widgets-list-layout-blavatar {
+/* 93  */ 	float: left;
+/* 94  */ 	width: 21.276596%;
+/* 95  */ 	max-width: 40px;
+/* 96  */ 	height: auto;
+/* 97  */ }
+/* 98  */ 
+/* 99  */ .widgets-list-layout-links {
+/* 100 */ 	float: right;
+
+/* widget-grid-and-list.css */
+
+/* 101 */ 	width: 73.404255%;
+/* 102 */ }
+/* 103 */ 
+/* 104 */ .widgets-list-layout span {
+/* 105 */ 	opacity: 0.5;
+/* 106 */ }
+/* 107 */ 
+/* 108 */ .widgets-list-layout span:hover {
+/* 109 */ 	opacity: 0.8;
+/* 110 */ }
+/* 111 */ 

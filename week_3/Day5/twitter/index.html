@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lan="en">
+	<head>
+		<meta charset="UTF-8"> <!-- Let me use accents on words-->
+		<title>twitter</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="top-bar">
+			<!-- row navigation -->
+			<!-- has 2 columns of width 6 -->
+				<div class="navigation pull-left">
+					<nav class="left-links nav_content">
+						<span><img src="img/twitter_image.png" alt="twitter_logo" height="25" width="25"></span>
+						<span>Home</span>
+						<span>About</span>
+					</nav>
+				</div>
+				<div class="controls pull-right">
+					<nav class="right_links nav_content">
+						<span><input class="twitter_input" type="text" name="user_input" placeholder="Search Twitter"></span>
+						<span>Have an account?</span>
+						<span>Log in</span>
+					</nav>
+					
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid main">
+			<!-- Row for the image. Only 1 column of width 12 -->
+			<div class="image_row">
+				<div class="col-sm-12">
+					<img src="img/main_image2.jpg" alt="Ironhack Image" height="300" width="1200">
+				</div>
+			</div>
+			<!-- has 2 columns: 1 for followers(width 9) and 1 for button (width 3) -->
+			<div class="follow_row clearfix">
+				<div class="col-sm-10">
+				<!-- Inside this column I have 6 columns -->
+					<div class="col-sm-4">
+						<a href="url"><img class="ironHack_logo" src="img/irohack_logo.png" alt="Ironhack Image" height="200" width="200"></a>
+					</div>
+					<div class="col-sm-1">
+						<div>TWEETS</div>
+						<a href="url">number</a>
+					</div>
+					<div class="col-sm-1">
+						<div>FOLLOWING</div>
+						<a href="url">number</a>
+					</div>
+					<div class="col-sm-1">
+						<div>FOLLOWERS</div>
+						<a href="url">number</a>
+					</div>
+					<div class="col-sm-1">
+						<div>LIKES</div>
+						<a href="url">number</a>
+					</div>
+					<div class="col-sm-1">
+						<div>LISTS</div>
+						<a href="url">number</a>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-default pull-right">Follow</button>
+				</div>
+			</div>
+			<!-- Rest of content goes here. It has 3 columns: width 3, 6 and 3 -->
+			 <div class="content_row clearfix">  <!--Bootstrap let use this class to let the parent
+			 know that the kids are inside him when kids are floating. This let me apply style the father.-->
+				<!-- left column (ironhack description) -->
+				<div class="col-sm-3">
+					<h3>Ironhack</h3>
+					<div class="@ironhack"><a href="??">@ironhack</a></div>
+					<p class="left_paragraph">Intensive coding courses for programmers and entrepreneurs.</p>
+					<div class="left=list">
+						<ul>
+							<li>Madrid, Barcelona & Miami</li>
+							<li><a href="??">ironhack.com</a></li>
+							<li>Joined June 2013</li>
+						</ul>
+					</div>
+						<a href="??">432 Photos and videos</a>
+					<div class="left_images">	
+						<span><a href="url"><img class="left_images" src="img/tiny1.jpg" alt="Ironhack_pictures" height="80" width="80"></a></span>
+						<span><a href="url"><img class="left_images" src="img/tiny1.jpg" alt="Ironhack_pictures" height="80" width="80"></a></span>
+						<span><a href="url"><img class="left_images" src="img/tiny1.jpg" alt="Ironhack_pictures" height="80" width="80"></a></span>
+						<span><a href="url"><img class="left_images" src="img/tiny1.jpg" alt="Ironhack_pictures" height="80" width="80"></a></span>
+						<span><a href="url"><img class="left_images" src="img/tiny1.jpg" alt="Ironhack_pictures" height="80" width="80"></a></span>
+						<span><a href="url"><img class="left_images" src="img/tiny1.jpg" alt="Ironhack_pictures" height="80" width="80"></a></span>
+					</div>
+				</div>
+				<!-- middle column (tweet column) Has 6 rows inside-->
+				<div class="col-sm-5 middle_column ">
+					 <!-- This row has 3 columns -->
+					 <div class="row line_division">
+					 	<div class="col-sm-3"><a href="">Tweets</a></div> 
+					 	<div class="col-sm-3"><a href="">Tweets&Replies</a></div> 
+					 	<div class="col-sm-6"><a href="">Photos&videos</a></div> 
+					 </div>
+					 <div class="row line_division">
+					 	<div class="paragraph ">
+						 	<a href="">Ironhack Retweeted</a>
+						 	<p>Ya no me acordaba, pero la gente de @ironhack me pidieron opinión sobre cosas (y a los que de verdad saben):</p>
+						 </div>
+					 </div>
+					 <div class="row line_division">
+					 	<div class="party">
+						 	<a href="">Ironhack</a>
+						 	<p>Ya no me acordaba, pero la gente de @ironhack me pidieron opinión sobre cosas (y a los que de verdad saben):</p>
+						 	<img class="img_party"src="img/ironhack_party.jpg" alt="Ironhack Image">
+						 </div>
+					 </div>
+
+					 <div class="col6_row3 line_division">
+					 	<p>Ya no me acordaba, pero la gente de @ironhack me pidieron opinión sobre cosas (y a los que de verdad saben):</p>
+					 </div>
+					 <div class="col6_row4 line_division">
+					 	<p>Ya no me acordaba, pero la gente de @ironhack me pidieron opinión sobre cosas (y a los que de verdad saben):</p>
+					 </div>
+				</div>
+				<!-- right column (has 3 rows) -->
+				<div class="col-sm-4">
+					 <div class="row sign_up">
+					 	<h3>New to Twitter?</h3>
+						<p>Sign up now to get your own personalized timeline!</p>
+						<a class="sign_button" href="">Sign up</a>
+					 </div>
+					 <div class="row">
+					 </div>
+					  <div class="row">
+					 </div>
+
+				</div>
+			</div>
+		</div>
+
+	</body>	
+</html>

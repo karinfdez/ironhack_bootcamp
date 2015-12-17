@@ -11,14 +11,13 @@
 def palindrome?(string)
 	
 	isPalindrome=false
-	originalString=string
 	
 	 if string.scan(/[\w'-]+/).length != 1
-		 originalString=string.gsub!(/[^0-9A-Za-z]/, '')
+		 string=string.gsub!(/[^0-9A-Za-z]/, '')
 	 end	
-	  inverseString=originalString.reverse
+	  inverseString=string.reverse
 	 
-	 if inverseString.eql? originalString
+	 if inverseString.eql? string
 	 	isPalindrome=true
 	 end
 	 p isPalindrome

@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+	<title>Sinatra Homework</title>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href="/css/home.css" rel="stylesheet">
+ </head>
+ <body>
+	<h1 class="title">Kipu Systems Homework</h1>
+	
+	<p class="paragraph">
+		This webpage is running in Sinatra. 
+		In order to show the content in server.rb 
+		file with rounded border, the default gray background color and
+		 some padding was used the .well class. In this example the color 
+		 was modified to make it looks better.
+		To apply the proper formatting was used CodeRay(Ruby library for
+		 syntax highlighting and format code).
+		If <a href="https://dry-ravine-1865.herokuapp.com/code">
+		https://dry-ravine-1865.herokuapp.com/code</a> is typed it's possible 
+		to receive the JSON response that's 
+		show the content of the server.rb, the home.erb and the css file.
+	</p>
+	<div class="json">
+		<h4 class="file_name">server.rb</h4>
+		<div class="well well-lg">
+			<%= @server %>
+		</div>
+
+		<h4 class="file_name">home.erb</h4>
+		<div class="well well-lg">
+			<%= @home %>
+		</div>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+
+body{
+	background-color: #8ED2C9;
+	margin: 0 auto;
+}
+
+.title{
+	text-align: center;
+  margin-top: 100px;
+  color: #696969;
+}
+
+.paragraph{
+
+	padding: 0 55px;
+	font-size: 18px;
+	margin-top:40px;
+	color: #696969;
+	
+}
+
+.file_name{
+	text-align: center;
+	color: #696969;
+
+}
+
+.well{
+	background-color: #00AAA0;
+	
+}
+
+.well-lg{
+	margin: 0 55px;
+	border-radius: 3px;
+}
+
